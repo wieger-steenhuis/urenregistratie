@@ -19,7 +19,7 @@
     <input type="hidden" id="customer" name="customer"  th:field="${subscription.customer}"/>
     <input th:if="${subscription.id != 0}" type="hidden" id="subscrType" name="subscrType"  th:field="${subscription.subscrType}"/>
     <label>klant: </label>
-    <label style="display: inline-block;" th:text="${subscription.customer}">klant</label>
+    <label style="display: inline-block; width: 250px;" th:text="${subscription.customer}">klant</label>
     <br/>
     <label>trainer: </label>
     <select style="display: inline-block;" title="select" class="kader_layout" id="select_trainer" name="trainer">
@@ -28,10 +28,10 @@
     </select>
     <br/>
     <label>abonnementstype: </label>
-    <select style="display: inline-block;" th:if="${subscription.id == 0}" title="select" class="kader_layout" id="type" name="subscrType">
+    <select style="display: inline-block; width: 250px;" th:if="${subscription.id == 0}" title="select" class="kader_layout" id="type" name="subscrType">
         <option th:each="item : ${types}" th:value="${item}" th:text="${item.description}"/>
     </select>
-    <label style="display: inline-block;" th:if="${subscription.id != 0}"
+    <label style="display: inline-block; width: 250px;" th:if="${subscription.id != 0}"
            th:text="${subscription.subscrType.description}">abonnementstype</label>
 
     <br/>
