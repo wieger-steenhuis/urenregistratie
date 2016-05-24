@@ -17,10 +17,10 @@
 <form action="#" th:action="@{/save}" th:object="${customer}" id="custform" method="post" class="formlayout">
     <input type="hidden" id="id" name="id"  th:field="${customer.id}"/>
     <label>voornaam: </label>
-    <input type="text" placeholder="voornaam" id="firstName" name="firstName" th:field="${customer.firstName}"/>
+    <input required="required" type="text" placeholder="voornaam" id="firstName" name="firstName" th:field="${customer.firstName}"/>
     <br/>
     <label>achternaam: </label>
-    <input type="text" placeholder="achternaam" id="lastName" name="lastName" th:field="${customer.lastName}"/>
+    <input required="required" type="text" placeholder="achternaam" id="lastName" name="lastName" th:field="${customer.lastName}"/>
     <br/>
     <label>telefoonnummer: </label>
     <input type="text" placeholder="telefoonnummer" id="phoneNr" name="phoneNr" th:field="${customer.phoneNr}"/>
@@ -40,13 +40,13 @@
             <td>
                 <form th:action="@{/subscription}" th:object="${subscription}" method="post">
                     <input type="hidden" name="subscription" th:value="${item.id}"/>
-                    <input type="submit" class="clickable_row" th:value="${item}"/>
+                    <input  style="width: 400px;" type="submit" class="clickable_row" th:value="${item}"/>
                 </form>
             </td>
         </tr>
         <tr>
             <td>
-            <input type="submit" class="clickable_row" style="color: #ff0066; font-weight: bold" form="custform" formaction="newsubscription" value="Nieuw Abonnement"/>
+            <input type="submit" class="clickable_row" style="color: #ff0066; font-weight: bold; width: 400px;" form="custform" formaction="newsubscription" value="Nieuw Abonnement"/>
             </td>
         </tr>
         </tbody>
