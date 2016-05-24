@@ -17,7 +17,7 @@
     <input type="hidden" id="id" name="id"  th:field="${trainer.id}"/>
     <br/>
     <label>voornaam: </label>
-    <input type="text" placeholder="voornaam" id="firstName" name="firstName" th:field="${trainer.firstName}"/>
+    <input required="required" type="text" placeholder="voornaam" id="firstName" name="firstName" th:field="${trainer.firstName}"/>
     <br/>
     <label>achternaam: </label>
     <input type="text" placeholder="achternaam" id="lastName" name="lastName" th:field="${trainer.lastName}"/>
