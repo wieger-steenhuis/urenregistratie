@@ -73,7 +73,9 @@ public class Subscription {
 
     @Override
     public String toString() {
-        return "Abonnement "+this.getId() +
-                ", start datum" + startDate;
+        String t;
+        if (trainer != null) t = this.getTrainer().getFirstName() + " " + this.getTrainer().getLastName();
+        else t = "Nog geen trainer";
+        return "Start: " + this.getStartDate() + ", " + t;
     }
 }
