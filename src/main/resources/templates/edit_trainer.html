@@ -25,7 +25,7 @@
         <td>
             <form th:action="@{/trainer}" th:object="${trainer}" method="post">
                 <input type="hidden" name="trainer" th:value="${item.id}"/>
-                <input type="submit" class="clickable_row" th:value="${item}"/>
+                <input style="width: 500px;" type="submit" class="clickable_row" th:value="${item}"/>
             </form>
         </td>
     </tr>
