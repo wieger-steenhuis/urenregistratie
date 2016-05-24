@@ -18,7 +18,7 @@ public class Customer {
     private String lastName;
     private String phoneNr;
     private String eMail;
-    private String pin;
+    private String pin;     // TODO fixed 5 digits
 
     public int getId() {
         return id;
