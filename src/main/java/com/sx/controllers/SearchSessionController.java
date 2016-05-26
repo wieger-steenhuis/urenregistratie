@@ -25,13 +25,16 @@ public class SearchSessionController {
     @Autowired
     private SessionService sessionService;
 
+
     //the search form sends String data to 'sesresults' with an identifier 'customerSessionSearch'
     //'customerSessionSearch' is the parameter for searching the session database with 'sessionSearch' method
     //'searchresults' is a list of sessions that match the searchcriteria and is addded to this view
     @RequestMapping(value = "sesresults", method = RequestMethod.GET)
     public String customerSessionSearch(@ModelAttribute("customerSessionSearch") String search, Model model) {
-        model.addAttribute("searchresults", sessionService.searchSessionsByCustomerName(search, search));
-        return "/edit_trainer";
+       // todo : parameter trainer vervangen voor ingelogde trainer (securelogin?)
+        model.addAttribute("searchresults", sessionService.findSessionsToSchedule(trainerService.searchNames("t","t").get(0), search));
+
+        return "search_session";
     }
 }
 

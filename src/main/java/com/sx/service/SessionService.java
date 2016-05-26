@@ -1,5 +1,6 @@
 package com.sx.service;
 
+import com.sx.models.Customer;
 import com.sx.models.Session;
 import com.sx.models.Subscription;
 import com.sx.models.Trainer;
@@ -7,6 +8,7 @@ import com.sx.repositories.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,9 +29,11 @@ public class SessionService {
         }
     }
 
-    public List<Session> searchSessionsByCustomerName(String firstName, String lastName, Trainer trainer){
-
-        customerService.searchNames(firstName,lastName);
-        return null; // to do: for each customer result uit searchnames 1: check of er sub is bij trainer -> 2: sessies teruggeven
-                    //  in sessie een trainer en een klant zetten.
+    public List<Session> findSessionsToSchedule(Trainer trainer, String search) {
+        List<Session> sessionList = new ArrayList<>();
+        for (Customer customer : customerService.searchNames(search, search)) {
+            sessionList.addAll(this.sessionRepository.findByTrainerAndCustomer(trainer, customer));
+        }
+        return sessionList;
+    }
 }

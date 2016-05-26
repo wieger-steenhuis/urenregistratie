@@ -13,6 +13,28 @@ public class Session {
 
     @ManyToOne
     private Subscription subscription;
+    
+    @ManyToOne
+    private Customer customer;    
+    
+    @ManyToOne
+    private Trainer trainer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
 
     public int getId() {
         return id;
@@ -37,4 +59,6 @@ public class Session {
     public void setSubscription(Subscription subscription) {
         this.subscription = subscription;
     }
+    
+    
 }
