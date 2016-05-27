@@ -24,8 +24,9 @@
     <tbody>
     <tr th:each="item : ${searchresults}">
         <td>
-            <form th:action="@{/session}" th:object="${session}" method="post">
+            <form th:action="@{/schedulesession}" th:object="${sportSession}" method="post">
                 <input type="submit" class="clickable_row" th:value="${item}"/>
+                <input type="hidden" name="sportSession" th:value="${item.id}"/>
             </form>
         </td>
     </tr>

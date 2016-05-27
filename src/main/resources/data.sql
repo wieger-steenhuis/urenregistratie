@@ -38,4 +38,3 @@ INSERT INTO `sport_session` (`id`, `subscription_id`, `customer_id`, `trainer_id
   (10, 1, 5, 4, NULL),
   (11, 1, 5, 4, NULL),
   (12, 1, 5, 4, NULL);
-

@@ -3,7 +3,7 @@ package com.sx.models;
 import javax.persistence.*;
 
 @Entity
-public class Session {
+public class SportSession {
 
     @Id
     //@Column(name="id") //don't need this, table name is equal to entity class...
@@ -13,10 +13,10 @@ public class Session {
 
     @ManyToOne
     private Subscription subscription;
-    
+
     @ManyToOne
-    private Customer customer;    
-    
+    private Customer customer;
+
     @ManyToOne
     private Trainer trainer;
 
@@ -59,6 +59,9 @@ public class Session {
     public void setSubscription(Subscription subscription) {
         this.subscription = subscription;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return customer + " " + date;
+    }
 }

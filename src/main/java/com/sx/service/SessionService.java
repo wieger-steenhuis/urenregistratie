@@ -1,7 +1,7 @@
 package com.sx.service;
 
 import com.sx.models.Customer;
-import com.sx.models.Session;
+import com.sx.models.SportSession;
 import com.sx.models.Subscription;
 import com.sx.models.Trainer;
 import com.sx.repositories.SessionRepository;
@@ -20,20 +20,25 @@ public class SessionService {
     @Autowired
     private CustomerService customerService;
 
+    public SportSession save(SportSession sportSession){
+        return this.sessionRepository.save(sportSession);
+    }
+
+
     public void initSessions(Subscription subscription){
         //create sessions depending on SubscrType
         for (int i = 0; i < subscription.getSubscrType().getSessions(); i++) {
-            Session session = new Session();
-            session.setSubscription(subscription);//to enable manyToOne relation
-            this.sessionRepository.save(session);
+            SportSession sportSession = new SportSession();
+            sportSession.setSubscription(subscription);//to enable manyToOne relation
+            this.sessionRepository.save(sportSession);
         }
     }
 
-    public List<Session> findSessionsToSchedule(Trainer trainer, String search) {
-        List<Session> sessionList = new ArrayList<>();
+    public List<SportSession> findSessionsToSchedule(Trainer trainer, String search) {
+        List<SportSession> sportSessionList = new ArrayList<>();
         for (Customer customer : customerService.searchNames(search, search)) {
-            sessionList.addAll(this.sessionRepository.findByTrainerAndCustomer(trainer, customer));
+            sportSessionList.addAll(this.sessionRepository.findByTrainerAndCustomer(trainer, customer));
         }
-        return sessionList;
+        return sportSessionList;
     }
 }

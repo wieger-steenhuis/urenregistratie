@@ -18,17 +18,16 @@ INSERT INTO `customer` (`id`, `first_name`, `last_name`, `phone_nr`, `e_mail`, `
 INSERT INTO `subscription` (`id`, `customer_id`, `trainer_id`, `subscr_type`, `start_date`) VALUES
   (1, 5, 4, 'TWELVE', '2016-05-05');
 
-INSERT INTO `session` (`id`, `subscription_id`, `date`) VALUES
-  (1, 1, NULL),
-  (2, 1, NULL),
-  (3, 1, NULL),
-  (4, 1, NULL),
-  (5, 1, NULL),
-  (6, 1, NULL),
-  (7, 1, NULL),
-  (8, 1, NULL),
-  (9, 1, NULL),
-  (10, 1, NULL),
-  (11, 1, NULL),
-  (12, 1, NULL);
-
+INSERT INTO `sport_session` (`id`, `subscription_id`, `customer_id`, `trainer_id`, `date`) VALUES
+  (1, 1, 5, 4, NULL),
+  (2, 1, 5, 4, NULL),
+  (3, 1, 5, 4, NULL),
+  (4, 1, 5, 4, NULL),
+  (5, 1, 5, 4, NULL),
+  (6, 1, 5, 4, NULL),
+  (7, 1, 5, 4, NULL),
+  (8, 1, 5, 4, NULL),
+  (9, 1, 5, 4, NULL),
+  (10, 1, 5, 4, NULL),
+  (11, 1, 5, 4, NULL),
+  (12, 1, 5, 4, NULL);
