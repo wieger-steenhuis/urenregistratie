@@ -24,7 +24,7 @@
     <br/>
     <label>telefoonnummer: </label><input type="text" placeholder="telefoonnummer" id="phoneNr" name="phoneNr" th:field="${trainer.phoneNr}"/>
     <br/>
-    <label>e-mail: </label><input type="text" placeholder="e-mailadres" id="eMail" name="eMail" th:field="${trainer.eMail}"/>
+    <label>e-mail: </label><input type="text" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" placeholder="e-mailadres" id="eMail" name="eMail" th:field="${trainer.eMail}"/>
     <br/><br/>
     <button class="buttonlayout" type="submit"><b>Opslaan</b></button>
 </form>
