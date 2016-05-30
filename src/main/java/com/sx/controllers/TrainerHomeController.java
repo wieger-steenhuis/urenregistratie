@@ -59,7 +59,7 @@ public class TrainerHomeController {
 
         //trainer tasks:
         SCHEDULE_SESSIONS("Lessen inplannen of wijzigen", "/search_session"),
-        APPROVE_SESSIONS("Lessen goedkeuren", "/edit_trainer"),
+        APPROVE_SESSIONS("Lessen goedkeuren", "/list_scheduled_sessions"),
         RAPPORTAGE("(Maand)rapportages maken", "/reporting");
 
         //enum variables:

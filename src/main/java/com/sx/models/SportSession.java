@@ -1,6 +1,7 @@
 package com.sx.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class SportSession {
@@ -9,7 +10,7 @@ public class SportSession {
     //@Column(name="id") //don't need this, table name is equal to entity class...
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto increment
     private int id;
-    private String date;
+    private Date date;
 
     @ManyToOne
     private Subscription subscription;
@@ -44,11 +45,11 @@ public class SportSession {
         this.id = id;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
