@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="nl-NL">
 <head>
     <title>SX urenregistratie(web 1.0)</title>
     <link href="../static/Stylesheet.css" th:href="@{Stylesheet.css}" rel="stylesheet" media="screen" /> <!--DOES NOT WORK WITH SPRING...STORE STYLESHEET IN DEFFERENT FOLDER???-->
@@ -17,19 +17,20 @@
 <form action="#" th:action="@{/save}" th:object="${customer}" id="custform" method="post" class="formlayout">
     <input type="hidden" id="id" name="id"  th:field="${customer.id}"/>
     <label>voornaam: </label>
-    <input required="required" type="text" placeholder="voornaam" id="firstName" name="firstName" th:field="${customer.firstName}"/>
+    <input required="required" type="text" pattern=".*[^\s].*" placeholder="voornaam" id="firstName" name="firstName" th:field="${customer.firstName}"/>
     <br/>
     <label>achternaam: </label>
-    <input required="required" type="text" placeholder="achternaam" id="lastName" name="lastName" th:field="${customer.lastName}"/>
+    <input required="required" type="text" pattern=".*[^\s].*" placeholder="achternaam" id="lastName" name="lastName" th:field="${customer.lastName}"/>
     <br/>
     <label>telefoonnummer: </label>
     <input type="text" placeholder="telefoonnummer" id="phoneNr" name="phoneNr" th:field="${customer.phoneNr}"/>
     <br/>
     <label>e-mail: </label>
-    <input type="text" placeholder="e-mailadres" id="eMail" name="eMail" th:field="${customer.eMail}"/>
+    <input type="text" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" placeholder="e-mailadres" id="eMail" name="eMail" th:field="${customer.eMail}"/>
     <br/>
     <label>pin: </label>
-    <input type="text" placeholder="pincode" id="pin" name="pin" th:field="${customer.pin}"/>
+    <input required="required" type="text" pattern="[0-9]{5,5}" placeholder="pincode 5 cijfers" id="pin" name="pin" th:field="${customer.pin}"/>
+    <!--NOT USED ANYMORE<td th:if="${#fields.hasErrors('pin')}" th:errors="${customer.pin}">Pin Error</td>-->
     <br/><br/>
     <button class="buttonlayout" type="submit"><b>Opslaan</b></button>
 </form>
