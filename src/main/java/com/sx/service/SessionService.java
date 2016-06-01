@@ -1,6 +1,5 @@
 package com.sx.service;
 
-import com.sx.formatter.JavaDateToSQLDateTimeConverter;
 import com.sx.models.Customer;
 import com.sx.models.SportSession;
 import com.sx.models.Subscription;
@@ -21,16 +20,9 @@ public class SessionService {
     @Autowired
     private CustomerService customerService;
 
-    @Autowired
-    private JavaDateToSQLDateTimeConverter dateConverter;
-
-
-
     public SportSession save(SportSession sportSession){
         return this.sessionRepository.save(sportSession);
     }
-
-
 
     public void initSessions(Subscription subscription){
         //create sessions depending on SubscrType

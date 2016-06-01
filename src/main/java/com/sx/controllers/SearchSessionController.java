@@ -30,10 +30,9 @@ public class SearchSessionController {
     //'customerSessionSearch' is the parameter for searching the session database with 'sessionSearch' method
     //'searchresults' is a list of sessions that match the searchcriteria and is addded to this view
     @RequestMapping(value = "sesresults", method = RequestMethod.GET)
-    public String customerSessionSearch(@ModelAttribute("customerSessionSearch") String search, Model model) {
+    public String customerSessionSearch(@ModelAttribute("customerSessionSearch") String search,/* @RequestParam("dateTime") LocalDateTime dateAndTime, */Model model) {
        // todo : parameter trainer vervangen voor ingelogde trainer (securelogin?)
         model.addAttribute("searchresults", sessionService.findSessionsToSchedule(trainerService.searchNames("t","t").get(0), search));
-
         return "search_session";
     }
 }

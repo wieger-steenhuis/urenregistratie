@@ -1,7 +1,9 @@
 package com.sx.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class SportSession {
@@ -10,7 +12,8 @@ public class SportSession {
     //@Column(name="id") //don't need this, table name is equal to entity class...
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto increment
     private int id;
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+    private LocalDateTime dateTime;
 
     @ManyToOne
     private Subscription subscription;
@@ -45,12 +48,12 @@ public class SportSession {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public Subscription getSubscription() {
@@ -63,6 +66,6 @@ public class SportSession {
 
     @Override
     public String toString() {
-        return customer + " " + date;
+        return customer.toString();
     }
 }
