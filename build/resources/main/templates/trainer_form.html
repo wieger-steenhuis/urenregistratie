@@ -17,14 +17,16 @@
     <input type="hidden" id="id" name="id"  th:field="${trainer.id}"/>
     <br/>
     <label>voornaam: </label>
-    <input required="required" type="text" placeholder="voornaam" id="firstName" name="firstName" th:field="${trainer.firstName}"/>
+    <input required="required" type="text" pattern=".*[^\s].*" placeholder="voornaam" id="firstName" name="firstName" th:field="${trainer.firstName}"/>
     <br/>
     <label>achternaam: </label>
-    <input type="text" placeholder="achternaam" id="lastName" name="lastName" th:field="${trainer.lastName}"/>
+    <input type="text" pattern=".*[^\s].*" placeholder="achternaam" id="lastName" name="lastName" th:field="${trainer.lastName}"/>
     <br/>
-    <label>telefoonnummer: </label><input type="text" placeholder="telefoonnummer" id="phoneNr" name="phoneNr" th:field="${trainer.phoneNr}"/>
+    <label>telefoonnummer: </label><input type="tel" pattern="[+]?[0-9 ]+(\(0\))?[0-9 ]+[-]?[0-9 ]+" title="Bv. +31(0)6 123 456 78 of 040-2123456"
+                                          placeholder="telefoonnummer" id="phoneNr" name="phoneNr" th:field="${trainer.phoneNr}"/>
     <br/>
-    <label>e-mail: </label><input type="text" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" placeholder="e-mailadres" id="eMail" name="eMail" th:field="${trainer.eMail}"/>
+    <label>e-mail: </label><input type="email" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" title="Gebruik geldig e-mail adres met @ en met . "
+                                  placeholder="e-mailadres" id="eMail" name="eMail" th:field="${trainer.eMail}"/>
     <br/><br/>
     <button class="buttonlayout" type="submit"><b>Opslaan</b></button>
 </form>
