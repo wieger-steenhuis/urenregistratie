@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `subscription` (
   DEFAULT CHARSET = latin1
   AUTO_INCREMENT = 2;
 
-  CREATE TABLE IF NOT EXISTS `sport_session` (
+CREATE TABLE IF NOT EXISTS `sport_session` (
   `id`              INT(11) NOT NULL AUTO_INCREMENT,
   `subscription_id` INT(11) NOT NULL,
   `customer_id` INT(11) NOT NULL,
@@ -74,15 +74,15 @@ CREATE TABLE IF NOT EXISTS `subscription` (
   KEY `customer_id` (`customer_id`),
   KEY `trainer_id` (`trainer_id`)
 
-  )
+)
   ENGINE = InnoDB
   DEFAULT CHARSET = latin1
   AUTO_INCREMENT = 13;
 
 ALTER TABLE `sport_session`
   ADD CONSTRAINT `sport_session_ibfk_1` FOREIGN KEY (`subscription_id`) REFERENCES `subscription` (`id`)ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `sport_session_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `sport_session_ibfk_3` FOREIGN KEY (`trainer_id`) REFERENCES `trainer` (`id`)
+  ADD CONSTRAINT `sport_session_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `sport_session_ibfk_3` FOREIGN KEY (`trainer_id`) REFERENCES `trainer` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
