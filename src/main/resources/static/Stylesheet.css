@@ -80,3 +80,44 @@ label{
     text-align: right;
     padding: 5px;
 }
+
+.scrolling-table {
+    width: 100%;
+    border: 1px;
+}
+
+.scrolling-table th {
+    color: #E90E8B;
+    border-bottom: 1px solid #E90E8B;
+}
+
+.scrolling-table tr td {
+    width: 50%;
+    padding: 2px 5px;
+    border-right: 1px solid #E90E8B;
+    border-bottom: 1px solid #E90E8B;
+    text-align: left;
+    color: #666;
+}
+
+.scrolling-table tr td:last-child {
+    border-right: none;
+}
+
+.scrolling-table tr:last-child td {
+    border-bottom: none;
+}
+
+.scrolling-table tbody {
+    display: block;
+    height: 150px;
+    width: 450px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.scrolling-table tr {
+    display: table;
+    width: 450px;
+    table-layout: fixed;
+}
