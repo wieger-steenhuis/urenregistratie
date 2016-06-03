@@ -10,7 +10,6 @@
 
 package com.sx.controllers;
 
-import com.sx.models.User_roles;
 import com.sx.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -38,18 +37,11 @@ public class IndexController {
     @RequestMapping("/loginTo")
     public String loginTo(Principal principal){
         User sessionUser =(org.springframework.security.core.userdetails.User)((Authentication)principal).getPrincipal();
-       String username = sessionUser.getUsername();
-        System.out.println(username);
-        User_roles user_roles = new User_roles();
-        System.out.println("getAuthorities"+sessionUser.getAuthorities());
         if(sessionUser.getAuthorities()!=null&&sessionUser.getAuthorities().toString().contains("TRAINER")) {
-            System.out.println("in trainer"+sessionUser.getAuthorities() );
             return "redirect:/login2";
         }else if(sessionUser.getAuthorities()!=null&&sessionUser.getAuthorities().toString().contains("ADMIN")){
-            System.out.println("in admin "+sessionUser.getAuthorities());
             return "redirect:/login";
         }
-        System.out.println("not found Authority");
         return "/index";
     }
 
