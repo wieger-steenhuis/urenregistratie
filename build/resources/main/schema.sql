@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `subscription` (
   `subscription_id` INT(11) NOT NULL,
   `customer_id` INT(11) NOT NULL,
   `trainer_id` INT(11) NOT NULL,
-  `date`            VARCHAR(200)     DEFAULT NULL,
+  `date_time`  DATETIME  DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `subscription_id` (`subscription_id`),
   KEY `customer_id` (`customer_id`),
