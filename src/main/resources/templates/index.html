@@ -2,29 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en-US">
 <head>
     <title>SX urenregistratie(web 1.0)</title>
-    <link href="../static/Stylesheet.css" th:href="@{Stylesheet.css}" rel="stylesheet" media="screen" /> <!--DOES NOT WORK WITH SPRING...STORE STYLESHEET IN DEFFERENT FOLDER???-->
+    <link href="../static/bootstrap.css" th:href="@{bootstrap.css}" rel="stylesheet" media="screen" />
+    <script type="text/javascript" src="../../static/jquery-2.2.4.js" th:src="@{jquery-2.2.4.js}"></script>
+    <script src="../../static/bootstrap.js" th:src="@{bootstrap.js}"></script>
     <meta charset="UTF-8" />
 </head>
+
 <body>
-    <header>
-        <div>
-            <h1 title="SX urenregistratie">
-                <img src="../static/logoSX.png" title="SX Sports" alt="" width="500" th:src="@{logoSX.png}" />
-            </h1>
-        </div>
-    </header>
-    <form id="login-form" role="form" th:action="@{/login}" class="formlayout"
-          method="post"><!--method="post" th:object="${gizmo}">-->
+    <div th:replace="fragments/header :: header"></div>
+<div class="container-fluid">
+    <form id="login-form" role="form" th:action="@{/login}" method="post"><!--method="post" th:object="${gizmo}">-->
         <input type="text" style="text-align: center" id="username" placeholder="Gebruikersnaam" name="username"/><!--th:field="${gizmo.field2}"--><br/><br/>
         <input type="password" style="text-align: center" id="psw" placeholder="Wachtwoord" name="psw"/><!--th:field="${gizmo.field2}"--><br/><br/>
         <button class="buttonlayout" type="submit">Inloggen</button>
     </form>
-    <div style="align-items:baseline">
-        <p class="textcenter" style="background-color: white">powered by:<br/>
-            <a href="http://www.programit.nl" target="_blank">
-                <img src="http://s16.postimg.org/n93chb335/programitlogo152x77.png" title="ProgramIT" style="border:0;" width="100" height="50" />
-            </a>
-        </p>
-    </div>
+</div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

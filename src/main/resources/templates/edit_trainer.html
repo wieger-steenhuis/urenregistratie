@@ -2,33 +2,63 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en-US">
 <head>
     <title>SX urenregistratie(web 1.0)</title>
-    <link href="../static/Stylesheet.css" th:href="@{Stylesheet.css}" rel="stylesheet" media="screen" /> <!--DOES NOT WORK WITH SPRING...STORE STYLESHEET IN DEFFERENT FOLDER???-->
+    <link href="../static/bootstrap.css" th:href="@{bootstrap.css}" rel="stylesheet" media="screen" />
+    <script type="text/javascript" src="../../static/jquery-2.2.4.js" th:src="@{jquery-2.2.4.js}"></script>
+    <script src="../../static/bootstrap.js" th:src="@{bootstrap.js}"></script>
     <meta charset="UTF-8" />
 </head>
+
 <body>
-<header>
-    <div>
-        <h1 title="SX urenregistratie">
-            <img src="../static/logoSX.png" title="SX Sports" alt="" width="500" th:src="@{logoSX.png}" />
-        </h1>
-    </div>
-</header>
-<p class="textcenter">Kies 'Nieuwe trainer' of zoek naar bestaande trainers</p>
-<form class="formlayout" th:action="@{/results}" method="get">
-    <button class="buttonlayout" type="button" onclick="location.href='/newtrainer'">Nieuwe Trainer</button><br/><br/>
-    <input type="search" name="trainerSearch" id="trainerSearchId"/>
-    <button class="buttonlayout" type="submit">Zoek</button>
-</form>
-<table align="center">
-    <tbody>
-    <tr th:each="item : ${searchresults}">
-        <td>
-            <form th:action="@{/trainer}" th:object="${trainer}" method="post">
-                <input type="submit" class="clickable_row" th:value="${item}"/>
+<div th:replace="fragments/header :: header"></div>
+
+    <div class="container-fluid">
+        <p>Kies 'Nieuwe trainer' of zoek naar bestaande trainers</p>
+            <form th:action="@{/results}" method="get">
+            <button type="button" onclick="location.href='/newtrainer'">Nieuwe Trainer</button><br/><br/>
+            <input type="search" name="trainerSearch" id="trainerSearchId"/>
+            <button type="submit">Zoek</button>
             </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    </div>
+
+    <div class="container">
+    <h2>Overzicht trainers</h2>
+    <p>Overzicht van alle trainers. Klik op aanpassen om de gegevens te wijzigen</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Wijzigen</th>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${searchresults}">
+            <td>
+                <form th:action="@{/trainer}" th:object="${trainer}" method="post">
+                    <input type="hidden" name="trainer" th:value="${item.id}"/>
+                    <input class="btn btn-default" type="submit" value="aanpassen"/>
+                </form>
+            </td>
+            <td>
+                <p th:text="${item.firstName}"/>
+            </td>
+
+            <td>
+                <p th:text="${item.lastName}"/>
+            </td>
+
+            <td>
+                <p th:text="${item.eMail}"/>
+            </td>
+        </tr>
+
+        </tbody>
+
+        </table>
+    </div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
