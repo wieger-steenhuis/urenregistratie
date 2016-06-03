@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface TrainerRepository extends CrudRepository<Trainer, Integer> {
     public List<Trainer> findByFirstNameContainingOrLastNameContainingOrderByFirstNameAsc(String firstName, String lastName);
+    Trainer findByUsername(String name);
 }

@@ -20,6 +20,7 @@ public class TrainerService {
     public Trainer save(Trainer trainer){
         return this.trainerRepository.save(trainer);
     }
+    Trainer findByUsername(String name){return this.trainerRepository.findByUsername(name);}
 
     public Iterable<Trainer> findAll(){
         return this.trainerRepository.findAll();

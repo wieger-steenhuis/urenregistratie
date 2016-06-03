@@ -1,12 +1,9 @@
 package com.sx.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-//@Table(name="trainer") //don't need this, table name is equal to entity class...
+@Table(name="trainer") //don't need this, table name is equal to entity class...
 public class Trainer {
 
     @Id
@@ -15,9 +12,10 @@ public class Trainer {
     private int id;
     private String firstName;
     private String lastName;
+    private String username;
     private String phoneNr;
     private String eMail;
-    private String passWord;
+    private String password;
 
     public int getId() {
         return id;
@@ -59,12 +57,20 @@ public class Trainer {
         this.eMail = eMail;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override

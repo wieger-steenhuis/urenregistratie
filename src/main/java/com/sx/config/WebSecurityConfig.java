@@ -26,19 +26,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/**", "/fonts/**", "/images/**","/","/about","/contact","/register","/register/save", "/console/*").permitAll()
+                .antMatchers("/","/index","/Stylesheet.css","/images/**","/loginTo").permitAll()
+                .antMatchers("/login2","/trainer_home").hasAuthority("TRAINER")
+                .antMatchers("/admin_home").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login")//because we override and create our own login page we need to give permission
+                .formLogin().loginPage("/")//because we override and create our own login page we need to give permission
                 // to access this login page by adding the permitAll()as good practise so unauthenticated users can access it for sure!!
+                //.failureUrl("/")
                 .usernameParameter("username").passwordParameter("password")
                 .permitAll()
-                .defaultSuccessUrl("/completeCollection")
+                .defaultSuccessUrl("/loginTo")
                 .and()
-                .logout().permitAll();
+                .logout().permitAll()
+               .and()
+                .exceptionHandling().accessDeniedPage("/unauthorized");
 
-        http.csrf().disable();
-        http.headers().frameOptions().disable();
     }
 
     @Autowired
@@ -46,14 +49,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         System.out.println("we are here");
         authenticationManagerBuilder.jdbcAuthentication().dataSource(driverManagerDataSource)
 
-                //.usersByUsernameQuery("select username, password enabled from users where username=?")
-                .authoritiesByUsernameQuery("select username, password enabled from users where username=?")//validate user by username and password and user is enabled to access
+       .usersByUsernameQuery("select username, password, enabled from trainer where username=?")
+        .authoritiesByUsernameQuery("select username, role from user_roles where username=?")
         ;
-        System.out.println("we are here now");
+//        System.out.println("we are here now");
 //        authenticationManagerBuilder.inMemoryAuthentication()
 //                .withUser("user")
 //                .password("password")
-//                .roles("USER")//and()..withUser("admin").password("password").roles("ADMIN")
+//                .roles("TRAINER").and().withUser("admin").password("password").roles("ADMIN")
 //        ;
 
     }
