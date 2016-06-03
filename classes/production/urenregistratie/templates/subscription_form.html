@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en-US">
+    <title>SX urenregistratie(web 1.0)</title>
+    <link href="../static/Stylesheet.css" th:href="@{../Stylesheet.css}" rel="stylesheet" media="screen" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+<header>
+    <div>
+        <h1 title="SX urenregistratie">
+            <img src="../static/images/logoSX.png" title="SX Sports" alt="" width="500" th:src="@{/images/logoSX.png}" />
+        </h1>
+    </div>
+</header>
+
+<form action="#" th:action="@{/save_subscription}" th:object="${subscription}" method="post" class="formlayout">
+    <input type="hidden" id="id" name="id"  th:field="${subscription.id}"/>
+    <input type="hidden" id="customer" name="customer"  th:field="${subscription.customer}"/>
+    <input th:if="${subscription.id != 0}" type="hidden" id="subscrType" name="subscrType"  th:field="${subscription.subscrType}"/>
+    <label>klant: </label>
+    <label style="display: inline-block;" th:text="${subscription.customer}">klant</label>
+    <br/>
+    <label>trainer: </label>
+    <select style="display: inline-block;" title="select" class="kader_layout" id="select_trainer" name="trainer">
+        <option value="0">Selecteer Trainer...</option>
+        <option th:each="item : ${trainers}" th:value="${item.id}" th:text="${item}" th:selected="${subscription.trainer == item}"/>
+    </select>
+    <br/>
+    <label>abonnementstype: </label>
+    <select style="display: inline-block;" th:if="${subscription.id == 0}" title="select" class="kader_layout" id="type" name="subscrType">
+        <option th:each="item : ${types}" th:value="${item}" th:text="${item.description}"/>
+    </select>
+    <label style="display: inline-block;" th:if="${subscription.id != 0}"
+           th:text="${subscription.subscrType.description}">abonnementstype</label>
+
+    <br/>
+    <label>startdatum: </label>
+    <input style="display: inline-block;" required="required" type="date" placeholder="datum" id="date" name="date" th:field="${subscription.startDate}"/>
+    <br/>
+    <br/>
+    <button class="buttonlayout" type="submit"><b>Opslaan</b></button>
+</form>
+</body>
+</html>
