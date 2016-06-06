@@ -52,13 +52,10 @@ public class SubscriptionFormController {
     }
 
     //when new subscription button is clicked from previous template customer_form a new subscription is inserted in the form
-    //if customer_form contains a new customer, this customer is saved first to obtain a customer id from
-    //the database so the subscription can relate to this customer
+    //customer is saved first to persist edited fields and to obtain a customer id in case of new customer
     @RequestMapping(value="/newsubscription", method=RequestMethod.POST)
     public String newSubscription(Customer customer, Model model) {
-        if (customer.getId() == 0) {
-            customer = customerService.save(customer);
-        }
+        customer = customerService.save(customer);
         Subscription subscription = new Subscription(SubscrType.TWENTYFOUR);
         subscription.setCustomer(customer);
         model.addAttribute("subscription", subscription);
