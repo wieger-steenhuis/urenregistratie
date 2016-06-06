@@ -15,7 +15,7 @@ public enum SubscrType {TWELVE(12, "12 Sessies (12 weken)"), TWENTYFOUR(24, "24 
         return sessions;
     }
 
-    public void setSessions(int sessions) {
+    private void setSessions(int sessions) {
         this.sessions = sessions;
     }
 
@@ -23,7 +23,7 @@ public enum SubscrType {TWELVE(12, "12 Sessies (12 weken)"), TWENTYFOUR(24, "24 
         return description;
     }
 
-    public void setDescription(String description) {
+    private void setDescription(String description) {
         this.description = description;
     }
 }

@@ -49,7 +49,7 @@ public class SportSession {
     }
 
     public Date getDateTime() {
-        return dateTime;
+        return this.dateTime;
     }
 
     public void setDateTime(Date dateTime) {
