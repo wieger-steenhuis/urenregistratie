@@ -12,6 +12,7 @@ public class SportSession {
     //@Column(name="id") //don't need this, table name is equal to entity class...
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto increment
     private int id;
+
     @DateWithTime
     private Date dateTime;
 
@@ -49,11 +50,11 @@ public class SportSession {
     }
 
     public Date getDateTime() {
-        return this.dateTime;
+        return this.dateTime = dateTime != null ? new Date(dateTime.getTime()) : null;
     }
 
     public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
+        if (dateTime!=null) this.dateTime = new Date(dateTime.getTime());
     }
 
     public Subscription getSubscription() {

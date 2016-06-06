@@ -1,7 +1,5 @@
 package com.sx.models;
 
-import com.sx.formatters.DateWithoutTime;
-
 import javax.persistence.*;
 
 
@@ -13,10 +11,7 @@ public class Subscription {
     //@Column(name="id") //don't need this, table name is equal to entity class...
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto increment
     private int id;
-
-    @DateWithoutTime
     private String startDate;
-
     @Enumerated(EnumType.STRING)
     private SubscrType subscrType;
 
