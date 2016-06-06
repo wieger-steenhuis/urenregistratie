@@ -29,7 +29,7 @@ public class ListScheduledSessionsController {
     // entries can be selected to be approved by a customer
     //
     @RequestMapping("dayresults")
-    public String DaySessionSearch(Model model) {
+    public String daySessionSearch(Model model) {
         // todo : parameter trainer vervangen voor ingelogde trainer (securelogin?)
         model.addAttribute("thisdate", LocalDate.now() );
 

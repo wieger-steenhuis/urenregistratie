@@ -1,9 +1,9 @@
 package com.sx.models;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.sx.formatters.DateWithTime;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class SportSession {
@@ -12,8 +12,8 @@ public class SportSession {
     //@Column(name="id") //don't need this, table name is equal to entity class...
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto increment
     private int id;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
-    private LocalDateTime dateTime;
+    @DateWithTime
+    private Date dateTime;
 
     @ManyToOne
     private Subscription subscription;
@@ -48,11 +48,11 @@ public class SportSession {
         this.id = id;
     }
 
-    public LocalDateTime getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 

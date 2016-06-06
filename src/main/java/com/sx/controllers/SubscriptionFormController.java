@@ -32,13 +32,13 @@ public class SubscriptionFormController {
 
     //to add data to the model for this view outside of it's methods use @ModelAttribute
 
-    //a complete list of all trainers is added in order to select a trainer with a subscription
+    //a complete list of all trainers is added to select a trainer with a subscription
     @ModelAttribute("trainers")
     public List<Trainer> populateTrainers() {
         return (List<Trainer>)trainerService.findAll();
     }
 
-    //a list of subscriptionTypes is added in order to select a subscription type (new subscriptions only)
+    //a list of subscriptionTypes is added to select a subscription type (new subscriptions only)
     @ModelAttribute("types")
     public List<SubscrType> populateTypes(){
         return Arrays.asList(SubscrType.values());

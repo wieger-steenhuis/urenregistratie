@@ -25,7 +25,7 @@ VALUES ('ju', 'ADMIN');
 INSERT INTO user_roles (username, role)
 VALUES ('hans', 'ADMIN');
 
-INSERT INTO `sport_session` (`id`, `subscription_id`, `customer_id`, `trainer_id`, `date`) VALUES
+INSERT INTO `sport_session` (`id`, `subscription_id`, `customer_id`, `trainer_id`, `date_time`) VALUES
   (1, 1, 5, 4, NULL),
   (2, 1, 5, 4, NULL),
   (3, 1, 5, 4, NULL),
