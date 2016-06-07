@@ -66,6 +66,9 @@ public class SubscriptionFormController {
     // redirects to customer_form with subscription.customer data
     @RequestMapping(value = "/save_subscription", method=RequestMethod.POST)
     public String saveSubscription(Subscription subscription, Model model){
+        if (subscription.getTrainer() == null){
+            return "/subscription_form";
+        }
         subscription = subscriptionService.save(subscription);
         model.addAttribute("customer", customerService.findOne(subscription.getCustomer().getId()));
         model.addAttribute("subscriptions", subscriptionService.findByCustomer(subscription.getCustomer()));

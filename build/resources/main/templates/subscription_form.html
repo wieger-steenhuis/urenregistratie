@@ -23,8 +23,8 @@
     <label style="display: inline-block; width: 250px;" th:text="${subscription.customer}">klant</label>
     <br/>
     <label>trainer: </label>
-    <select style="display: inline-block;" title="select" class="kader_layout" th:if="${subscription.id == 0}" id="select_trainer" name="trainer">
-        <option value="0">Selecteer Trainer...</option>
+    <select style="display: inline-block;" title="select" class="kader_layout" id="select_trainer" name="trainer">
+        <option value="0">Selecteer Trainer...(verplicht)</option>
         <option th:each="item : ${trainers}" th:value="${item.id}" th:text="${item}" th:selected="${subscription.trainer == item}"/>
     </select>
     <label style="display: inline-block; width: 250px;" th:if="${subscription.id != 0}" th:text="${subscription.trainer}">trainer</label>
