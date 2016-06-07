@@ -13,6 +13,11 @@ public class SportSession {
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto increment
     private int id;
 
+    private boolean approved;
+
+    @DateWithTime
+    private Date timeApproved;
+
     @DateWithTime
     private Date dateTime;
 
@@ -24,6 +29,22 @@ public class SportSession {
 
     @ManyToOne
     private Trainer trainer;
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
+    public Date getTimeApproved() {
+        return timeApproved;
+    }
+
+    public void setTimeApproved(Date timeApproved) {
+        this.timeApproved = timeApproved;
+    }
 
     public Customer getCustomer() {
         return customer;
