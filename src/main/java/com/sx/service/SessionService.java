@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -41,5 +43,20 @@ public class SessionService {
             sportSessionList.addAll(this.sessionRepository.findByTrainerAndCustomer(trainer, customer));
         }
         return sportSessionList;
+    }
+    public List<SportSession> findSessionsToApprove(Trainer trainer, Date dateTime) {
+        Calendar cal = Calendar.getInstance();
+        System.out.println("NOW =" +cal.getTime());
+        cal.setTime(dateTime);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        Date from = cal.getTime();
+        System.out.println("FROM ="+from);
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        Date to = cal.getTime();
+        System.out.println("TO ="+to);
+        return this.sessionRepository.findByTrainerAndDateTimeBetween(trainer, from, to);
     }
 }

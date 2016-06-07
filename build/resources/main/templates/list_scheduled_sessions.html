@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="nl">
 <head>
     <title>SX urenregistratie(web 1.0)</title>
     <link href="../static/Stylesheet.css" th:href="@{Stylesheet.css}" rel="stylesheet" media="screen" /> <!--DOES NOT WORK WITH SPRING...STORE STYLESHEET IN DEFFERENT FOLDER???-->
@@ -9,20 +9,27 @@
 <header>
     <div>
         <h1 title="SX urenregistratie">
-            <img src="../static/logoSX.png" title="SX Sports" alt="" width="500" th:src="@{logoSX.png}" />
+            <img src="../static/images/logoSX.png" title="SX Sports" alt="" width="500" th:src="@{/images/logoSX.png}" />
         </h1>
     </div>
 </header>
+<div class="textcenter">
+    <p>Klik <span><a th:href="@{/todayssessions}">HIER</a></span> voor de sessies van vandaag</p>
+    <p>of kies hieronder een andere datum:</p>
+    <form th:action="@{/somotherdaysession}" method="post">
+        <input type="date" name="date" id="date"/>
+        <button type="submit" class="buttonlayout" >verder</button>
+    </form>
+</div>
 
-
-<p class="textcenter"><label th:text="${thisdate}">Label</label></p>
+<p class="textcenter">Sessies van <span><label th:text="${thisdate}">Label</label></span></p>
 
 
 <table align="center">
     <tbody>
-    <tr th:each="item : ${searchresults}">
+    <tr th:each="item : ${sportSessions}">
         <td>
-            <form th:action="@{/schedulesession}" th:object="${sportSession}" method="post">
+            <form th:action="@{/approvesession}" th:object="${sportSession}" method="post">
                 <input type="submit" class="clickable_row" th:value="${item}"/>
                 <input type="hidden" name="sportSession" th:value="${item.id}"/>
             </form>
