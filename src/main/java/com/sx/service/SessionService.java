@@ -40,7 +40,7 @@ public class SessionService {
     public List<SportSession> findSessionsToSchedule(Trainer trainer, String search) {
         List<SportSession> sportSessionList = new ArrayList<>();
         for (Customer customer : customerService.searchNames(search, search)) {
-            sportSessionList.addAll(this.sessionRepository.findByTrainerAndCustomer(trainer, customer));
+            sportSessionList.addAll(this.sessionRepository.findByTrainerAndCustomerOrderByDateTime(trainer, customer));
         }
         return sportSessionList;
     }
@@ -57,6 +57,6 @@ public class SessionService {
         cal.add(Calendar.DAY_OF_MONTH, 1);
         Date to = cal.getTime();
         System.out.println("TO ="+to);
-        return this.sessionRepository.findByTrainerAndDateTimeBetween(trainer, from, to);
+        return this.sessionRepository.findByTrainerAndDateTimeBetweenOrderByDateTime(trainer, from, to);
     }
 }

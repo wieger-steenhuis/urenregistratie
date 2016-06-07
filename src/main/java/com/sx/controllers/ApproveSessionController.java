@@ -17,7 +17,7 @@ public class ApproveSessionController {
     @Autowired
     private SessionService sessionService;
 
-    SportSession thisSportSession;
+    private SportSession thisSportSession;
     String wrongPin = "";
 
     @RequestMapping(value = "approvesession", method = RequestMethod.POST)

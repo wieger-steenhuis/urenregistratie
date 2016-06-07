@@ -10,6 +10,6 @@ import java.util.List;
 
 
 public interface SessionRepository extends CrudRepository<SportSession, Integer> {
-    public List<SportSession> findByTrainerAndCustomer(Trainer trainer, Customer customer);
-    public List<SportSession> findByTrainerAndDateTimeBetween(Trainer trainer, Date from, Date to);
+    public List<SportSession> findByTrainerAndCustomerOrderByDateTime(Trainer trainer, Customer customer);
+    public List<SportSession> findByTrainerAndDateTimeBetweenOrderByDateTime(Trainer trainer, Date from, Date to);
 }
