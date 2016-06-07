@@ -75,7 +75,7 @@ public class Trainer {
 
     @Override
     public String toString() {
-        return this.firstName+" "+this.lastName+" - "+this.eMail;
+        return this.firstName+" "+this.lastName;
     }
 }
 

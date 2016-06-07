@@ -22,7 +22,7 @@
     </form>
 </div>
 
-<p class="textcenter">Sessies van <span><label th:text="${thisdate}">Label</label></span></p>
+<p th:if="${sportSessions!=null}" class="textcenter">Sessies van <span><label th:text="${thisdate}">Label</label></span></p>
 
 
 <table align="center">
