@@ -13,7 +13,7 @@ import java.util.Set;
  * Factory that creates formatters to format values of fields annotated with a particular Annotation.
 ******************************************************************************************************/
 
-public final class DateWithoutTimeAnnotationFormatterFactory implements AnnotationFormatterFactory<DateWithoutTime> {
+public final class  DateWithoutTimeAnnotationFormatterFactory implements AnnotationFormatterFactory<DateWithoutTime> {
 
     /*
     * Holds fieldTypes that can be annoptated with DateWithoutTime (Only java.util.Date)

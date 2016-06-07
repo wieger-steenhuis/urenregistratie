@@ -30,7 +30,7 @@ public class DateWithoutTimeFormatter implements Formatter <Date> {
 
     @Override
     public Date parse(String source, Locale locale) throws ParseException {
-        System.out.println("PARSING STRING -->"+source);
+//        System.out.println("PARSING STRING -->"+source);
         return new SimpleDateFormat("yyyy-MM-dd", locale).parse(source);
     }
 
@@ -40,7 +40,7 @@ public class DateWithoutTimeFormatter implements Formatter <Date> {
             return null;
         }
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println("Formatting from Java.util.Date ->"+source);
+//        System.out.println("Formatting from Java.util.Date ->"+source);
         return dateFormatter.format(source);
     }
 }

@@ -14,17 +14,14 @@
     </div>
 </header>
 <div class="textcenter">
-    <p>Klik <span><a th:href="@{/todayssessions}">HIER</a></span> voor de sessies van vandaag</p>
+    <p>Klik <span><a th:href="@{/todayssessions}">hier</a></span> voor de sessies van vandaag</p>
     <p>of kies hieronder een andere datum:</p>
     <form th:action="@{/somotherdaysession}" method="post">
-        <input type="date" name="date" id="date"/>
+        <input type="date" name="date" id="date" required="required"/>
         <button type="submit" class="buttonlayout" >verder</button>
     </form>
 </div>
-
-<p th:if="${sportSessions!=null}" class="textcenter">Sessies van <span><label th:text="${thisdate}">Label</label></span></p>
-
-
+<p th:if="${sportSessions!=null}" class="textcenter">Sessies van <span th:text="${thisdate}">datum</span></p>
 <table align="center">
     <tbody>
     <tr th:each="item : ${sportSessions}">
