@@ -3,6 +3,8 @@ package com.sx.models;
 import com.sx.formatters.DateWithTime;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -14,6 +16,9 @@ public class SportSession {
     private int id;
 
     private boolean approved;
+
+    // Date and Time format to print SportSession in toString() method
+    private static DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy 'om' HH:mm 'uur'");
 
     @DateWithTime
     private Date timeApproved;
@@ -88,6 +93,15 @@ public class SportSession {
 
     @Override
     public String toString() {
-        return customer.toString();
+        Date time=this.getDateTime();
+        if (time == null) {
+            return customer.toString() + " - Niet ingepland";
+        }
+        else if (this.isApproved()) {
+            return customer.toString() + " - Afgetekend op: " + sdf.format( this.getTimeApproved());
+        }
+        else {
+            return customer.toString() + " - Gepland op: " + sdf.format(time);
+        }
     }
 }
