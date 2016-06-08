@@ -13,10 +13,10 @@
         </h1>
     </div>
 </header>
-<p class="textcenter">Vul hieronder de pincode in en druk op "Verder" om de les te accorderen</p>
+<p class="textcenter">Vul hieronder de pincode van de klant in en druk op "Verder" om de sessie goed te keuren</p>
 <p class="textcenter" th:text="${sportSession}">thisSportSession</p>
 <form class="formlayout" th:action="@{/customerapprove}" method="post">
-    <input type="password" id="pin" name="pin"/>
+    <input type="password" required="" id="pin" name="pin"/>
     <button class="buttonlayout" type="submit">Verder</button>
 </form>
 <p class="textcenter" style="color:red; font-weight: bold" th:text="${wrongPin}">REPORTS</p>

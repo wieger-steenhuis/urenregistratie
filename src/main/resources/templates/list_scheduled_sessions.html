@@ -27,7 +27,7 @@
     <tr th:each="item : ${sportSessions}">
         <td>
             <form th:action="@{/approvesession}" th:object="${sportSession}" method="post">
-                <input style="width: 500px;" type="submit" class="clickable_row" th:value="${item}"/>
+                <input style="width: 600px;" type="submit" class="clickable_row" th:value="${item}"/>
                 <input type="hidden" name="sportSession" th:value="${item.id}"/>
             </form>
         </td>
