@@ -34,7 +34,8 @@ public class ReportingController {
         for (SportSession sportSession : sessionsOfMonth){
             if (sportSession.isApproved()) NrOfApporvedSessions++;
         }
-        model.addAttribute("month", new SimpleDateFormat("MM-yyyy").format(month));
+        month.setTime(month.getTime()+(24*60*60*1000));//adds 1 day in miliseconds to correct wrong html output from GUI
+        model.addAttribute("month", new SimpleDateFormat("MMMM yyyy").format(month));//MMMM displays full name of month
         model.addAttribute("NrOfApporvedSessions", NrOfApporvedSessions);
         model.addAttribute("sessionsOfMonth", sessionsOfMonth);
         return "/reporting";
