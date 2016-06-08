@@ -31,6 +31,9 @@ public class DateWithoutTimeFormatter implements Formatter <Date> {
     @Override
     public Date parse(String source, Locale locale) throws ParseException {
         System.out.println("PARSING STRING -->"+source);
+        if (source == null || source.isEmpty()){
+            return null;
+        }
         if (source.length()==7) source = source+"-00"; //to parse month
         return new SimpleDateFormat("yyyy-MM-dd", locale).parse(source);
     }

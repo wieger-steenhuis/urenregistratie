@@ -31,6 +31,9 @@ public class DateWithTimeFormatter implements Formatter <Date> {
 
     @Override
     public Date parse(String source, Locale locale) throws ParseException {
+        if (source == null || source.isEmpty()){
+            return null;
+        }
         System.out.println("PARSING STRING WITH TIME -->"+source);
         return new SimpleDateFormat("yyyy-MM-dd HH:mm", locale).parse(source);
     }

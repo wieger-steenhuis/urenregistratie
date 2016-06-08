@@ -15,9 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by unknown on 8-6-2016.
- */
 
 @Controller
 public class ReportingController {
