@@ -33,7 +33,7 @@ public class ApproveSessionController {
             thisSportSession.setApproved(true);
             thisSportSession.setTimeApproved(new Date());
             sessionService.save(thisSportSession);
-            return "/list_scheduled_sessions";
+            return "redirect:/login2";
         }
         String wrongPin = "Foutieve Pincode, probeer opnieuw";
         model.addAttribute("wrongPin", wrongPin);

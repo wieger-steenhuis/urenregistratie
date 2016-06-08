@@ -20,8 +20,8 @@ import java.lang.annotation.Target;
  ************************************************************************/
 
 
-@Target({ElementType.FIELD})
-@Retention(RetentionPolicy.RUNTIME)
+@Target(value={ElementType.METHOD,ElementType.FIELD,ElementType.PARAMETER})
+@Retention(value=RetentionPolicy.RUNTIME)
 public @interface DateWithoutTime {
 
 }

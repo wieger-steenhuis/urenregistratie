@@ -59,4 +59,16 @@ public class SessionService {
         System.out.println("TO ="+to);
         return this.sessionRepository.findByTrainerAndDateTimeBetweenOrderByDateTime(trainer, from, to);
     }
+
+    public List<SportSession> findSessionsOfMonth(Trainer trainer, Date dateTime) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateTime);
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        Date from = cal.getTime();
+        System.out.println("FROM ="+from);
+        cal.add(Calendar.MONTH, 1);
+        Date to = cal.getTime();
+        System.out.println("TO ="+to);
+        return this.sessionRepository.findByTrainerAndDateTimeBetweenOrderByDateTime(trainer, from, to);
+    }
 }

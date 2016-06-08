@@ -20,6 +20,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry){
+        super.addFormatters(registry);
         registry.addFormatterForFieldAnnotation(new DateWithoutTimeAnnotationFormatterFactory());
         registry.addFormatterForFieldAnnotation(new DateWithTimeAnnotationFormatterFactory());
     }
