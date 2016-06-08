@@ -1,10 +1,7 @@
 package com.sx.config;
 
-import com.sx.formatters.DateWithTimeAnnotationFormatterFactory;
-import com.sx.formatters.DateWithoutTimeAnnotationFormatterFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.format.FormatterRegistry;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -12,18 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Created by udr013 on 13-5-2016.
  */
 @Configuration
-public class MvcConfig extends WebMvcConfigurerAdapter {
-
-    /*
-    * add annotated formatters to the application registry:
-    * */
-
-    @Override
-    public void addFormatters(FormatterRegistry registry){
-        super.addFormatters(registry);
-        registry.addFormatterForFieldAnnotation(new DateWithoutTimeAnnotationFormatterFactory());
-        registry.addFormatterForFieldAnnotation(new DateWithTimeAnnotationFormatterFactory());
-    }
+public class MvcConfig extends WebMvcConfigurerAdapter{
 
     // bean to access database over spring security
     @Bean(name="driverManagerDataSource")

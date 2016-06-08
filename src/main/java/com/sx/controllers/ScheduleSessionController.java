@@ -45,7 +45,6 @@ public class ScheduleSessionController {
                 e.printStackTrace();
             }
             sessionService.save(sportSession);
-            // todo: na security implementatie een nieuwe redirect maken
             return "redirect:/login2";//without redirect: trainer_home will be loaded without the model variables...
         }
 }

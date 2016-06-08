@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `subscription` (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = latin1
-  AUTO_INCREMENT = 2;
+  AUTO_INCREMENT = 3;
 
 CREATE TABLE IF NOT EXISTS `sport_session` (
   `id`              INT(11) NOT NULL AUTO_INCREMENT,

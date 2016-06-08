@@ -38,7 +38,6 @@ public class AdminHomeController {
     //when this url is requested admin_home.html will be shown
     //admin_home is loaded with java object(s) through model.addAttributes("String identifier", object)
     //in this case the admin tasks(enum) are loaded in the view
-    //TODO reset requestMapping (security)
     @RequestMapping("/login")
     public String adminhome(Model model){
         model.addAttribute("admin_opts", options);

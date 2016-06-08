@@ -16,25 +16,26 @@ INSERT INTO `customer` (`id`, `first_name`, `last_name`, `phone_nr`, `e_mail`, `
   (8, 'Aaron', 'vd Akker', '', 'aaron@gmail.com', '');
 
 INSERT INTO `subscription` (`id`, `customer_id`, `trainer_id`, `subscr_type`, `start_date`) VALUES
-  (1, 5, 4, 'TWELVE', '2016-05-05');
+  (1, 5, 1, 'TWELVE', '2016-05-05');
 
-INSERT INTO user_roles (username, role)
-VALUES ('tess', 'TRAINER');
-INSERT INTO user_roles (username, role)
-VALUES ('ju', 'ADMIN');
-INSERT INTO user_roles (username, role)
-VALUES ('hans', 'ADMIN');
+INSERT INTO user_roles (username, role) VALUES
+  ('tess', 'TRAINER'),
+  ('henk', 'TRAINER'),
+  ('har', 'TRAINER'),
+  ('er', 'TRAINER'),
+  ('ju', 'ADMIN'),
+  ('hans', 'ADMIN');
 
 INSERT INTO `sport_session` (`id`, `subscription_id`, `customer_id`, `trainer_id`, `date_time`, `approved`,`time_approved` ) VALUES
-  (1, 1, 5, 4, NULL, 0, NULL),
-  (2, 1, 5, 4, '2016-06-07 19:00:00', 0, NULL ),
-  (3, 1, 5, 4, NULL, 0, NULL),
-  (4, 1, 5, 4, '2016-06-08 21:00:00', 0, NULL),
-  (5, 1, 5, 4, NULL, 0, NULL),
-  (6, 1, 5, 4, NULL, 0, NULL),
-  (7, 1, 5, 4, '2016-06-07 18:00:00', 0, NULL),
-  (8, 1, 5, 4, NULL, 0, NULL),
-  (9, 1, 5, 4, '2016-06-07 20:00:00', 0, NULL),
-  (10, 1, 5, 4, NULL, 0, NULL),
-  (11, 1, 5, 4, NULL, 0, NULL),
-  (12, 1, 5, 4, NULL, 0, NULL);
+  (1, 1, 5, 1, NULL, 0, NULL),
+  (2, 1, 5, 1, '2016-06-07 19:00:00', 0, NULL ),
+  (3, 1, 5, 1, NULL, 0, NULL),
+  (4, 1, 5, 1, '2016-06-08 21:00:00', 0, NULL),
+  (5, 1, 5, 1, NULL, 0, NULL),
+  (6, 1, 5, 1, NULL, 0, NULL),
+  (7, 1, 5, 1, '2016-06-07 18:00:00', 0, NULL),
+  (8, 1, 5, 1, NULL, 0, NULL),
+  (9, 1, 5, 1, '2016-06-07 20:00:00', 0, NULL),
+  (10, 1, 5, 1, NULL, 0, NULL),
+  (11, 1, 5, 1, NULL, 0, NULL),
+  (12, 1, 5, 1, NULL, 0, NULL);

@@ -34,7 +34,6 @@ public class TrainerHomeController {
 
 
     //log in form on index.html sends data with th:action="@{/login}" in thymeleaf
-    //TODO use security roles to redirect to admin_home or trainer_home requestMapping (security)
     //trainer_home is loaded with java object(s) through model.addAttributes("String identifier", object)
     //in this case the trainer tasks(enum) are loaded in the view
 

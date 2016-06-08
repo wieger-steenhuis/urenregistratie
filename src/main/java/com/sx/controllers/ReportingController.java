@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,8 +26,8 @@ public class ReportingController {
     private TrainerService trainerService;
 
     @RequestMapping(value="report", method= RequestMethod.POST)
-    public String report(@RequestParam ("month") @DateWithoutTime Date month , Model model) {
-        List<SportSession>sessionsOfMonth = sessionService.findSessionsOfMonth(trainerService.searchNames("t", "t").get(0), month);
+    public String report(@RequestParam ("month") @DateWithoutTime Date month , Model model, HttpServletRequest hhtpRequest) {
+        List<SportSession>sessionsOfMonth = sessionService.findSessionsOfMonth(trainerService.findByUsername(hhtpRequest.getRemoteUser()), month);
         int NrOfApporvedSessions = 0;
         for (SportSession sportSession : sessionsOfMonth){
             if (sportSession.isApproved()) NrOfApporvedSessions++;

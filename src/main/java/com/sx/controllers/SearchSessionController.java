@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by Mrtn on 25-5-2016.
  */
@@ -28,10 +30,11 @@ public class SearchSessionController {
     //the search form sends String data to 'sesresults' with an identifier 'customerSessionSearch'
     //'customerSessionSearch' is the parameter for searching the session database with 'sessionSearch' method
     //'searchresults' is a list of sessions that match the searchcriteria and is addded to this view
+    //Parameters are Trainer and Customer, where Trainer represents the logged in user
+    // interface HttpServletRequest's method getRemoteUser returns the username as a String
     @RequestMapping(value = "sesresults", method = RequestMethod.GET)
-    public String customerSessionSearch(@ModelAttribute("customerSessionSearch") String search, Model model) {
-       // todo : parameter trainer vervangen voor ingelogde trainer (securelogin?)
-        model.addAttribute("searchresults", sessionService.findSessionsToSchedule(trainerService.searchNames("t","t").get(0), search));
+    public String customerSessionSearch(@ModelAttribute("customerSessionSearch") String search, Model model, HttpServletRequest httpRequest) {
+        model.addAttribute("searchresults", sessionService.findSessionsToSchedule(trainerService.findByUsername(httpRequest.getRemoteUser()), search));
         return "search_session";
     }
 }
