@@ -42,11 +42,15 @@ public class ListScheduledSessionsController {
 
     @RequestMapping("somotherdaysession")
     public String otherDaySessions(@RequestParam ("date") String dateString, Model model) throws ParseException{
-        Date date =  new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
-        System.out.println(date);
-        model.addAttribute("thisdate", dateString);
-        model.addAttribute("sportSessions", sessionService.findSessionsToApprove(trainerService.searchNames("t", "t").get(0), date));
-        return "/list_scheduled_sessions";
+        if (!dateString.isEmpty()) {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
+            System.out.println(date);
+            model.addAttribute("thisdate", dateString);
+            model.addAttribute("sportSessions", sessionService.findSessionsToApprove(trainerService.searchNames("t", "t").get(0), date));
+            return "/list_scheduled_sessions";
+        } else {
+            return listScheduledSessions(new Date(), model);
+        }
     }
 
     @RequestMapping("todayssessions")
