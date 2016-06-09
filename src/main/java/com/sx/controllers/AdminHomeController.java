@@ -60,7 +60,7 @@ public class AdminHomeController {
         //admin tasks:
         CUSTOMER("Klant toevoegen of wijzigen", "/edit_customer"),
         TRAINER("Trainer toevoegen of wijzigen", "/edit_trainer"),
-        RAPPORTAGE("(Maand)rapportages maken", "/reporting");
+        RAPPORTAGE("(Maand)rapportages maken", "/admin_reporting");
 
         //enum variables:
         private String option;

@@ -19,7 +19,8 @@
     <button class="buttonlayout" type="submit">Verder</button>
 </form>
 <div th:if="${sessionsOfMonth != null}">
-    <p class="textcenter">Totaal aantal gehouden en goedgekeurde sessies in <span th:text="${month}">maand </span>: <span th:text="${NrOfApporvedSessions}">aantal</span></p>
+    <p class="textcenter">Totaal aantal goedgekeurde sessies in <span th:text="${month}">maand </span>: <span th:text="${NrOfApporvedSessions}">aantal</span></p>
+    <p class="textcenter"> Maandoverzicht:</p>
 <table align="center">
     <thead>
     <tr>

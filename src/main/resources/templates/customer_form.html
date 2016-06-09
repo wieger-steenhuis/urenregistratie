@@ -13,13 +13,14 @@
         </h1>
     </div>
 </header>
+<p class="textcenter">Vul hier de gegevens in van de klant: </p>
 <!--/*@thymesVar id="customer" type="Customer"*/-->
 <form action="#" th:action="@{/save}" th:object="${customer}" id="custform" method="post" class="formlayout">
     <input type="hidden" id="id" name="id"  th:field="${customer.id}"/>
-    <label>voornaam: </label>
+    <label>voornaam:* </label>
     <input required="required" type="text" pattern=".*[^\s].*" placeholder="voornaam" id="firstName" name="firstName" th:field="${customer.firstName}"/>
     <br/>
-    <label>achternaam: </label>
+    <label>achternaam:* </label>
     <input required="required" type="text" pattern=".*[^\s].*" placeholder="achternaam" id="lastName" name="lastName" th:field="${customer.lastName}"/>
     <br/>
     <label>telefoonnummer: </label>
@@ -28,7 +29,7 @@
     <label>e-mail: </label>
     <input type="email" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" title="Gebruik geldig e-mail adres met @ en met . " placeholder="e-mailadres" id="eMail" name="eMail" th:field="${customer.eMail}"/>
     <br/>
-    <label>pin: </label>
+    <label>pin:* </label>
     <input required="required" type="text" pattern="[0-9]{5}" title="Gebruik vijf cijfers 0 t/m 9" placeholder="pincode 5 cijfers" id="pin" name="pin" th:field="${customer.pin}"/>
     <!--NOT USED ANYMORE<td th:if="${#fields.hasErrors('pin')}" th:errors="${customer.pin}">Pin Error</td>-->
     <br/><br/>
