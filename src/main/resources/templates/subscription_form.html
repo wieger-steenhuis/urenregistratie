@@ -13,7 +13,6 @@
         </h1>
     </div>
 </header>
-
 <form action="#" th:action="@{/save_subscription}" th:object="${subscription}" method="post" class="formlayout">
     <input type="hidden" id="id" name="id"  th:field="${subscription.id}"/>
     <input type="hidden" id="customer" name="customer"  th:field="${subscription.customer}"/>
