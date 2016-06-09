@@ -20,17 +20,25 @@
     <input type="search" name="customerSessionSearch" id="customerSessionSearchId"/>
     <button class="buttonlayout" type="submit">Zoek</button>
 </form>
+<div class="scrolling-table">
 <table align="center">
+    <thead>
+    <tr>
+        <th>Klant</th>
+        <th>Datum van sessie</th>
+    </tr>
+    </thead>
     <tbody>
     <tr th:each="item : ${searchresults}">
         <td>
             <form th:action="@{/schedulesession}" th:object="${sportSession}" method="post">
-                <input style="width: 600px;" type="submit" class="clickable_row" th:value="${item}"/>
+                <input style="text-align:left; width: 600px;" type="submit" class="clickable_row" th:value="${item}"/>
                 <input type="hidden" name="sportSession" th:value="${item.id}"/>
             </form>
         </td>
     </tr>
     </tbody>
 </table>
+    </div>
 </body>
 </html>

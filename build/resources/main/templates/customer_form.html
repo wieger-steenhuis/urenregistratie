@@ -26,7 +26,7 @@
     <input type="tel" pattern="[+]?[0-9 ]+(\(0\))?[0-9 ]+[-]?[0-9 ]+" title="Bv. +31(0)6 123 456 78 of 040-2123456" placeholder="telefoonnummer" id="phoneNr" name="phoneNr" th:field="${customer.phoneNr}"/>
     <br/>
     <label>e-mail: </label>
-    <input type="email" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" title="Gebruik geldig e-mail adres met @ en met . " placeholder="e-mailadres" id="eMail" name="eMail" th:field="${customer.eMail}"/>
+    <input type="email" pattern="[^\s@]+[@][^\s@]+[.][a-zA-Z]+" title="Gebruik geldig e-mail adres met @ en . " placeholder="e-mailadres" id="eMail" name="eMail" th:field="${customer.eMail}"/>
     <br/>
     <label>pin: </label>
     <input required="required" type="text" pattern="[0-9]{5}" title="Gebruik vijf cijfers 0 t/m 9" placeholder="pincode 5 cijfers" id="pin" name="pin" th:field="${customer.pin}"/>

@@ -102,7 +102,7 @@ public class SportSession {
             return customer.toString() + " - Afgetekend op: " + sdf2.format( this.getTimeApproved());
         }
         else {
-            return customer.toString() + " - Gepland op: " + sdf.format(time);
+            return customer.toString() + " - " + sdf.format(time);
         }
     }
 }

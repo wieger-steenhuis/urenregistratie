@@ -22,17 +22,19 @@
     </form>
 </div>
 <p th:if="${sportSessions!=null}" class="textcenter">Sessies van <span th:text="${thisdate}">datum</span></p>
+<div class="scrolling-table">
 <table align="center">
     <tbody>
     <tr th:each="item : ${sportSessions}">
         <td>
             <form th:action="@{/approvesession}" th:object="${sportSession}" method="post">
-                <input style="width: 600px;" type="submit" class="clickable_row" th:value="${item}"/>
+                <input style="text-align:left; width:600px;" type="submit" class="clickable_row" th:value="${item}"/>
                 <input type="hidden" name="sportSession" th:value="${item.id}"/>
             </form>
         </td>
     </tr>
     </tbody>
 </table>
+    </div>
 </body>
 </html>
