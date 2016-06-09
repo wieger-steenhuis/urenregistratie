@@ -22,6 +22,9 @@
     <div th:if="${param.error}" class="textcenter" style="color:red; font-weight: bold">
         Ongeldige gebruikersnaam of wachtwoord, probeer opnieuw
     </div>
+    <div class="textcenter" th:if="${param.logout}">
+        Je bent uitgelogd
+    </div>
     <div style="align-items:baseline">
         <p class="textcenter" style="background-color: white">powered by:<br/>
             <a href="http://www.programit.nl" target="_blank">
