@@ -13,6 +13,7 @@
         </h1>
     </div>
 </header>
+<p class="textcenter">Vul hier de gegevens in van het abonnement: </p>
 <form action="#" th:action="@{/save_subscription}" th:object="${subscription}" method="post" class="formlayout">
     <input type="hidden" id="id" name="id"  th:field="${subscription.id}"/>
     <input type="hidden" id="customer" name="customer"  th:field="${subscription.customer}"/>
@@ -21,21 +22,20 @@
     <label>klant: </label>
     <label style="display: inline-block; width: 250px;" th:text="${subscription.customer}">klant</label>
     <br/>
-    <label>trainer: </label>
+    <label>trainer:* </label>
     <select th:if="${subscription.id == 0}" style="display: inline-block;" title="select" class="kader_layout" id="select_trainer" name="trainer">
         <option value="0">Selecteer Trainer...(verplicht)</option>
         <option th:each="item : ${trainers}" th:value="${item.id}" th:text="${item}" th:selected="${subscription.trainer == item}"/>
     </select>
     <label style="display: inline-block; width: 250px;" th:if="${subscription.id != 0}" th:text="${subscription.trainer}">trainer</label>
     <br/>
-    <label>abonnementstype: </label>
+    <label>abonnementstype:* </label>
     <select style="display: inline-block; width: 250px;" th:if="${subscription.id == 0}" title="select" class="kader_layout" id="type" name="subscrType">
         <option th:each="item : ${types}" th:value="${item}" th:text="${item.description}"/>
     </select>
     <label style="display: inline-block; width: 250px;" th:if="${subscription.id != 0}" th:text="${subscription.subscrType.description}">abonnementstype</label>
-
     <br/>
-    <label>startdatum: </label>
+    <label>startdatum:* </label>
     <input style="display: inline-block;" required="required" type="date" placeholder="datum" th:field="${subscription.startDate}"/>
     <br/>
     <br/>
