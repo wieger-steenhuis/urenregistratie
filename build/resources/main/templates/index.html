@@ -19,6 +19,9 @@
         <input type="password" style="text-align: center" id="psw" placeholder="Wachtwoord" name="password"/><!--th:field="${gizmo.field2}"--><br/><br/>
         <button class="buttonlayout" type="submit">Inloggen</button>
     </form>
+    <div th:if="${param.error}" class="textcenter" style="color:red; font-weight: bold">
+        Ongeldige gebruikersnaam of wachtwoord, probeer opnieuw
+    </div>
     <div style="align-items:baseline">
         <p class="textcenter" style="background-color: white">powered by:<br/>
             <a href="http://www.programit.nl" target="_blank">
