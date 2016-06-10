@@ -21,8 +21,9 @@
     <button class="buttonlayout" type="submit">Verder</button>
 </form>
 <div th:if="${sessionsOfMonth != null}">
-    <p class="textcenter">Totaal aantal goedgekeurde sessies in <span th:text="${month}">maand </span>: <span
-            th:text="${NrOfApporvedSessions}">aantal</span></p>
+    <p class="textcenter">Totaal aantal goedgekeurde sessies in <span th:text="${month}">maand </span>: <!--/*@thymesVar id="NrOfApprvedSessions" type=""*/-->
+    <span
+            th:text="${NrOfApprovedSessions}">aantal</span></p>
     <p class="textcenter"> Maandoverzicht:</p>
     <div class="scrolling-table">
         <table align="center">
@@ -36,7 +37,7 @@
             <tbody>
             <tr th:each="item : ${sessionsOfMonth}">
                 <td th:text="${{item.dateTime}}">13-01-2016 11:15</td>
-                <td th:text="${item.customer.firstName}">Voornaam</td>
+                <td th:text="${item.customer.firstName} + ' ' + ${item.customer.lastName}">Naam</td>
                 <td th:text="${item.timeApproved}">Approved op datum en tijdstip</td>
             </tr>
             </tbody>

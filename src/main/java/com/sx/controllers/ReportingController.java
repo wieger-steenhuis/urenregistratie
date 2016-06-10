@@ -28,13 +28,13 @@ public class ReportingController {
     @RequestMapping(value="report", method= RequestMethod.POST)
     public String report(@RequestParam ("month") @DateWithoutTime Date month , Model model, HttpServletRequest hhtpRequest) {
         List<SportSession>sessionsOfMonth = sessionService.findSessionsOfMonth(trainerService.findByUsername(hhtpRequest.getRemoteUser()), month);
-        int NrOfApporvedSessions = 0;
+        int NrOfApprovedSessions = 0;
         for (SportSession sportSession : sessionsOfMonth){
-            if (sportSession.isApproved()) NrOfApporvedSessions++;
+            if (sportSession.isApproved()) NrOfApprovedSessions++;
         }
         month.setTime(month.getTime()+(24*60*60*1000));//adds 1 day in miliseconds to correct wrong html output from GUI
         model.addAttribute("month", new SimpleDateFormat("MMMM yyyy").format(month));//MMMM displays full name of month
-        model.addAttribute("NrOfApporvedSessions", NrOfApporvedSessions);
+        model.addAttribute("NrOfApprovedSessions", NrOfApprovedSessions);
         model.addAttribute("sessionsOfMonth", sessionsOfMonth);
         return "/reporting";
     }
