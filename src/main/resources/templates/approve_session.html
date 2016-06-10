@@ -13,6 +13,9 @@
         </h1>
     </div>
 </header>
+
+<button onclick="window.location.href='/login'">Hoofdmenu</button>
+
 <p class="textcenter">Vul hieronder je pincode in en druk op "Verder" om de sessie goed te keuren</p>
 <p class="textcenter" th:text="${sportSession}">thisSportSession</p>
 <form class="formlayout" th:action="@{/customerapprove}" method="post">
