@@ -38,7 +38,7 @@
             <tr th:each="item : ${sessionsOfMonth}">
                 <td th:text="${{item.dateTime}}">13-01-2016 11:15</td>
                 <td th:text="${item.customer.firstName} + ' ' + ${item.customer.lastName}">Naam</td>
-                <td th:text="${item.timeApproved}">Approved op datum en tijdstip</td>
+                <td th:text="${{item.timeApproved}}">Approved op datum en tijdstip</td>
             </tr>
             </tbody>
         </table>
