@@ -17,7 +17,7 @@
 <p class="textcenter">Selecteer een maand en druk op "Verder":</p>
 <form action="#" th:action="@{/report}" method="post" class="formlayout">
  <!--   <input type="text" required="" name="month" onfocus="(this.type='month')" onblur="if(!this.value)this.type='text'"/>-->
-    <input type="month" min="2016-01" required="" name="month" onblur="if(!this.value)this.type='text'"/>
+    <input type="month" min="2016-01" required="" name="month" />
     <button class="buttonlayout" type="submit">Verder</button>
 </form>
 <div th:if="${sessionsOfMonth != null}">
