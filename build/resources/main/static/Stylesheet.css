@@ -13,8 +13,8 @@ a{
 button.buttonlayout{
     padding: 0 5px 0 5px;
     border-style: solid;
-    border-color: black;
-    background-color: black;
+    border-color: #9200bf;
+    background-color: #9200bf;
     color: white;
     border-width: 5px;
     border-radius: 10px;
@@ -24,7 +24,7 @@ button.buttonlayout{
     font-size: 20px;
     font-family: Calibri,serif;
     border-style: solid;
-    border-color: #ff0066;
+    border-color: #9200bf;
     border-width: 4px;
     border-radius: 10px;
     width: 400px;
@@ -57,8 +57,8 @@ li {
 }
 header {
     font-size: 30px;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     padding: 2px 0 3px 0;
     text-align: center;
 }
@@ -66,7 +66,7 @@ input{
     font-size: 20px;
     font-family: Calibri,serif;
     border-style: solid;
-    border-color: #ff0066;
+    border-color: #9200bf;
     border-width: 4px;
     border-radius: 10px;
     display: inline-block;
@@ -87,15 +87,15 @@ label{
 }
 
 .scrolling-table th {
-    color: #E90E8B;
-    border-bottom: 1px solid #E90E8B;
+    color: #9456b5;
+    border-bottom: 1px solid #9456b5;
 }
 
 .scrolling-table tr td {
     width: 50%;
     padding: 2px 5px;
-    border-right: 1px solid #E90E8B;
-    border-bottom: 1px solid #E90E8B;
+    border-right: 1px solid #9456b5;
+    border-bottom: 1px solid #9456b5;
     text-align: left;
     color: #666;
 }
@@ -110,7 +110,7 @@ label{
 
 .scrolling-table tbody {
     display: block;
-    height: 150px;
+    height: 250px;
     width: 520px;
     overflow: hidden;
     overflow-y: auto;
