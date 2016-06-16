@@ -87,7 +87,7 @@ label{
 }
 
 .scrolling-table th {
-    color: #9456b5;
+    color: #9200bf;
     border-bottom: 1px solid #9456b5;
 }
 
@@ -110,7 +110,7 @@ label{
 
 .scrolling-table tbody {
     display: block;
-    height: 150px;
+    height: 250px;
     width: 520px;
     overflow: hidden;
     overflow-y: auto;
