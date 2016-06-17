@@ -18,7 +18,6 @@ public class ApproveSessionController {
     private SessionService sessionService;
 
     private SportSession thisSportSession;
-    String wrongPin = "";
 
     @RequestMapping(value = "approvesession", method = RequestMethod.POST)
     public String approveSession(SportSession sportSession, Model model){
