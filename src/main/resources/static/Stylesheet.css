@@ -80,7 +80,10 @@ label{
     text-align: right;
     padding: 5px;
 }
-
+.customername {
+    width: 300px;
+    text-align: left;
+}
 .scrolling-table {
     width: 100%;
     border: 1px;
