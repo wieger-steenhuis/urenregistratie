@@ -2,6 +2,7 @@ package com.sx.controllers;
 
 import com.sx.formatters.DateWithoutTime;
 import com.sx.models.SportSession;
+import com.sx.models.Trainer;
 import com.sx.service.SessionService;
 import com.sx.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +28,18 @@ public class ReportingController {
 
     @RequestMapping(value="report", method= RequestMethod.POST)
     public String report(@RequestParam ("month") @DateWithoutTime Date month , Model model, HttpServletRequest hhtpRequest) {
-        List<SportSession>sessionsOfMonth = sessionService.findSessionsOfMonth(trainerService.findByUsername(hhtpRequest.getRemoteUser()), month);
+        Trainer trainer = trainerService.findByUsername(hhtpRequest.getRemoteUser());
+        List<SportSession> sessionsOfMonth = sessionService.findSessionsOfMonth(trainer, month);
         int NrOfApprovedSessions = 0;
-        for (SportSession sportSession : sessionsOfMonth){
+        String trainerName = trainer.getFirstName() + " " + trainer.getLastName();
+        for (SportSession sportSession : sessionsOfMonth) {
             if (sportSession.isApproved()) NrOfApprovedSessions++;
         }
         month.setTime(month.getTime()+(24*60*60*1000));//adds 1 day in miliseconds to correct wrong html output from GUI
         model.addAttribute("month", new SimpleDateFormat("MMMM yyyy").format(month));//MMMM displays full name of month
         model.addAttribute("NrOfApprovedSessions", NrOfApprovedSessions);
         model.addAttribute("sessionsOfMonth", sessionsOfMonth);
+        model.addAttribute("trainerName", trainerName);
         return "/reporting";
     }
 }
