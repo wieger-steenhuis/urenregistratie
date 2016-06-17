@@ -8,7 +8,7 @@ a{
     font-family: Calibri,serif;
     font-size: 25px;
     font-weight: bold;
-    color: grey;
+    color: #9200bf;
 }
 button.buttonlayout{
     padding: 0 5px 0 5px;
@@ -80,14 +80,17 @@ label{
     text-align: right;
     padding: 5px;
 }
-
+.customername {
+    width: 300px;
+    text-align: left;
+}
 .scrolling-table {
     width: 100%;
     border: 1px;
 }
 
 .scrolling-table th {
-    color: #9456b5;
+    color: #9200bf;
     border-bottom: 1px solid #9456b5;
 }
 

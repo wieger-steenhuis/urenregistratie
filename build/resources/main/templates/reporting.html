@@ -15,7 +15,7 @@
     </div>
 </header>
 
-<button onclick="window.location.href='/login'">Hoofdmenu</button>
+<button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
 <p class="textcenter">Selecteer een maand en druk op "Verder":</p>
 <form action="#" th:action="@{/report}" method="post" class="formlayout">
@@ -24,10 +24,10 @@
     <button class="buttonlayout" type="submit">Verder</button>
 </form>
 <div th:if="${sessionsOfMonth != null}">
+    <p class="textcenter"> Maandoverzicht trainer: <span th:text="${trainerName}">trainer </span> </p>
     <p class="textcenter">Totaal aantal goedgekeurde sessies in <span th:text="${month}">maand </span>: <!--/*@thymesVar id="NrOfApprvedSessions" type=""*/-->
     <span
             th:text="${NrOfApprovedSessions}">aantal</span></p>
-    <p class="textcenter"> Maandoverzicht:</p>
     <div class="scrolling-table">
         <table align="center">
             <thead>
