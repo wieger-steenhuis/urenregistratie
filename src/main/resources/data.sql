@@ -28,14 +28,14 @@ INSERT INTO user_roles (username, role) VALUES
 
 INSERT INTO `sport_session` (`id`, `subscription_id`, `customer_id`, `trainer_id`, `date_time`, `approved`,`time_approved` ) VALUES
   (1, 1, 5, 1, NULL, 0, NULL),
-  (2, 1, 5, 1, '2016-06-10 19:00:00', 0, NULL ),
+  (2, 1, 5, 1, '2016-06-21 19:00:00', 0, NULL ),
   (3, 1, 5, 1, NULL, 0, NULL),
-  (4, 1, 5, 1, '2016-06-08 21:00:00', 0, NULL),
+  (4, 1, 5, 1, '2016-06-22 21:00:00', 0, NULL),
   (5, 1, 5, 1, NULL, 0, NULL),
   (6, 1, 5, 1, NULL, 0, NULL),
-  (7, 1, 5, 1, '2016-06-09 18:00:00', 0, NULL),
+  (7, 1, 5, 1, '2016-06-22 18:00:00', 0, NULL),
   (8, 1, 5, 1, NULL, 0, NULL),
-  (9, 1, 5, 1, '2016-06-07 20:00:00', 0, NULL),
+  (9, 1, 5, 1, '2016-06-21 20:00:00', 0, NULL),
   (10, 1, 5, 1, NULL, 0, NULL),
   (11, 1, 5, 1, NULL, 0, NULL),
   (12, 1, 5, 1, NULL, 0, NULL);
