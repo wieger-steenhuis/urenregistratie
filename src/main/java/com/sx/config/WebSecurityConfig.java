@@ -27,8 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/","/index","/Stylesheet.css","/images/**","/loginTo").permitAll()
-                .antMatchers("/login2","/trainer_home").hasAuthority("TRAINER")
-                .antMatchers("/admin_home").hasAuthority("ADMIN")
+                .antMatchers("/login2","/trainer_home").hasAuthority("TRAINER") // login2 page only for TRAINER
+                .antMatchers("/login","/admin_home").hasAuthority("ADMIN") // login page only for ADMIN
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/")//because we override and create our own login page we need to give permission
