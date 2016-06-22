@@ -17,11 +17,12 @@
 
 <button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
+<p class="textcenter" style="font-weight: bold">Goedkeuren van sessies: </p>
 <div class="textcenter">
     <p>Klik <span><a th:href="@{/todayssessions}">hier</a></span> voor de sessies van vandaag</p>
     <p>of kies hieronder een andere datum:</p>
     <form th:action="@{/somotherdaysession}" method="post">
-        <input type="date" name="date" id="date" required="required"/>
+        <input type="date" name="date" id="date" required="required" title="Selecteer datum of vul in: dd-mm-jjjj"/>
         <button type="submit" class="buttonlayout">verder</button>
     </form>
 </div>

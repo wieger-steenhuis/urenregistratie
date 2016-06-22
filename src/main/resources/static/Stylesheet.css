@@ -84,6 +84,10 @@ label{
     width: 300px;
     text-align: left;
 }
+.phone {
+    width: 300px;
+    text-align: left;
+}
 .scrolling-table {
     width: 100%;
     border: 1px;

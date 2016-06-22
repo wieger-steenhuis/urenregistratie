@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,15 +27,18 @@ public class ListScheduledSessionsController {
     @Autowired
     private SessionService sessionService;
 
+    // date formats for parsing and presenting
+    private static DateFormat parseDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static DateFormat presentDateFormat = new SimpleDateFormat("dd MMMM yyyy");
 
     //generate a list of sessions for the date picked by a user (Trainer)
     // interface HttpServletRequest's method getRemoteUser returns the username as a String
     @RequestMapping("somotherdaysession")
     public String otherDaySessions(@RequestParam ("date") String dateString, Model model, HttpServletRequest httpRequest) throws ParseException{
         if (!dateString.isEmpty()) {
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
-            System.out.println(date);
-            model.addAttribute("thisdate", dateString);
+            Date date = parseDateFormat.parse(dateString);
+//            System.out.println(date);
+            model.addAttribute("thisdate", presentDateFormat.format(date));
             model.addAttribute("sportSessions", sessionService.findSessionsToApprove(trainerService.findByUsername(httpRequest.getRemoteUser()), date));
             return "/list_scheduled_sessions";
         } else {
@@ -47,7 +51,7 @@ public class ListScheduledSessionsController {
     @RequestMapping("todayssessions")
     public String listScheduledSessions(Date date, Model model, HttpServletRequest httpRequest){
         date = new Date();
-        model.addAttribute("thisdate", new SimpleDateFormat("yyyy-MM-dd").format(date));
+        model.addAttribute("thisdate", presentDateFormat.format(date));
         model.addAttribute("sportSessions", sessionService.findSessionsToApprove(trainerService.findByUsername(httpRequest.getRemoteUser()), date));
         return "/list_scheduled_sessions";
     }

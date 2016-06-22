@@ -57,8 +57,8 @@ public class TrainerHomeController {
     private enum Trainer_Options {
 
         //trainer tasks:
-        SCHEDULE_SESSIONS("Lessen inplannen of wijzigen", "/search_session"),
-        APPROVE_SESSIONS("Lessen goedkeuren", "/list_scheduled_sessions"),
+        SCHEDULE_SESSIONS("Sessies inplannen of wijzigen", "/search_session"),
+        APPROVE_SESSIONS("Sessies goedkeuren", "/list_scheduled_sessions"),
         RAPPORTAGE("(Maand)rapportages maken", "/reporting");
 
         //enum variables:

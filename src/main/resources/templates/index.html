@@ -13,6 +13,9 @@
             <!--</h1>-->
         </div>
     </header>
+    <div class="textcenter" th:if="${param.logout}" style="font-weight: bold">
+        Je bent uitgelogd
+    </div>
     <form id="login-form" role="form" th:action="@{/}" class="formlayout"
           method="post"><!--method="post" th:object="${gizmo}">-->
         <input type="text" style="text-align: center" id="username" placeholder="Gebruikersnaam" name="username"/><!--th:field="${gizmo.field2}"--><br/><br/>
@@ -21,9 +24,6 @@
     </form>
     <div th:if="${param.error}" class="textcenter" style="color:red; font-weight: bold">
         Ongeldige gebruikersnaam of wachtwoord, probeer opnieuw
-    </div>
-    <div class="textcenter" th:if="${param.logout}" style="font-weight: bold">
-        Je bent uitgelogd
     </div>
     <div style="align-items:baseline">
         <p class="textcenter" style="background-color: white">powered by:<br/>

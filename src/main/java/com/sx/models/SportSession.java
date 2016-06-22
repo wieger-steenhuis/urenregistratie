@@ -18,8 +18,8 @@ public class SportSession {
     private boolean approved;
 
     // Date and Time formats to print SportSessions in toString() method
-    private static DateFormat sdf = new SimpleDateFormat("EEEE dd-MM-yyyy 'om' HH:mm 'uur'");
-    private static DateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy 'om' HH:mm 'uur'");
+    private static DateFormat sdf = new SimpleDateFormat("EEEE dd MMMM yyyy 'om' HH:mm 'uur'");
+    private static DateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy 'om' HH:mm 'uur'");
 
     @DateWithTime
     private Date timeApproved;
@@ -99,7 +99,7 @@ public class SportSession {
             return customer.toString() + " - Niet ingepland";
         }
         else if (this.isApproved()) {
-            return customer.toString() + " - Afgetekend op: " + sdf2.format( this.getTimeApproved());
+            return customer.toString() + " - Goedgekeurd op: " + sdf2.format( this.getTimeApproved());
         }
         else {
             return customer.toString() + " - " + sdf.format(time);

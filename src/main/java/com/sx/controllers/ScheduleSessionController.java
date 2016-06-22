@@ -28,6 +28,7 @@ public class ScheduleSessionController {
         @RequestMapping(value="schedulesession", method= RequestMethod.POST)
         public String scheduleSession(SportSession sportSession, Model model) {
             model.addAttribute("sportSession", sportSession);
+            model.addAttribute("phone", sportSession.getCustomer().getPhoneNr());
             //separate date and time in 2 String objects and add to the Model:
             if (sportSession.getDateTime() != null) {
                 model.addAttribute("date", new SimpleDateFormat("yyyy-MM-dd").format(sportSession.getDateTime()));
