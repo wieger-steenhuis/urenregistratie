@@ -40,23 +40,24 @@ public class SessionService {
     public List<SportSession> findSessionsToSchedule(Trainer trainer, String search) {
         List<SportSession> sportSessionList = new ArrayList<>();
         for (Customer customer : customerService.searchNames(search, search)) {
-            sportSessionList.addAll(this.sessionRepository.findByApprovedNotAndTrainerAndCustomerOrderByDateTime(true, trainer, customer));
+            sportSessionList.addAll(this.sessionRepository.findFirstByApprovedNotAndDateTimeNullAndTrainerAndCustomer(true, trainer, customer));
+            sportSessionList.addAll(this.sessionRepository.findByApprovedNotAndDateTimeNotNullAndTrainerAndCustomerOrderByDateTime(true, trainer, customer));
         }
         return sportSessionList;
     }
     public List<SportSession> findSessionsToApprove(Trainer trainer, Date dateTime) {
         Calendar cal = Calendar.getInstance();
-        System.out.println("NOW =" +cal.getTime());
+//        System.out.println("NOW =" +cal.getTime());
         cal.setTime(dateTime);
         cal.set(Calendar.HOUR_OF_DAY, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
         Date from = cal.getTime();
-        System.out.println("FROM ="+from);
+//        System.out.println("FROM ="+from);
         cal.add(Calendar.DAY_OF_MONTH, 1);
         Date to = cal.getTime();
-        System.out.println("TO ="+to);
+//        System.out.println("TO ="+to);
         return this.sessionRepository.findByApprovedNotAndTrainerAndDateTimeBetweenOrderByDateTime(true, trainer, from, to);
     }
 
@@ -65,10 +66,10 @@ public class SessionService {
         cal.setTime(dateTime);
         cal.add(Calendar.DAY_OF_MONTH, 1);
         Date from = cal.getTime();
-        System.out.println("FROM ="+from);
+//        System.out.println("FROM ="+from);
         cal.add(Calendar.MONTH, 1);
         Date to = cal.getTime();
-        System.out.println("TO ="+to);
+//        System.out.println("TO ="+to);
         return this.sessionRepository.findByTrainerAndDateTimeBetweenOrderByDateTime(trainer, from, to);
     }
 }

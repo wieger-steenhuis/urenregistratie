@@ -46,6 +46,5 @@ public class ScheduleSessionController {
             }
             sessionService.save(sportSession);
             return "redirect:/sesresults";//without redirect: search_session will be loaded without the model variables...
-//            return "redirect:/login2";//without redirect: trainer_home will be loaded without the model variables...
         }
 }

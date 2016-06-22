@@ -17,17 +17,16 @@
 
 <button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
-<p class="textcenter">Inplannen of wijzigen sessies: Zoek op klantnaam</p>
+<p class="textcenter">Inplannen of wijzigen sessies: <br> </br>Zoek op voor- of achternaam klant</p>
 <form class="formlayout" th:action="@{/sesresults}" method="get">
-    <input type="search" name="customerSessionSearch" id="customerSessionSearchId"/>
+    <input type="search" name="customerSessionSearch" id="customerSessionSearchId" placeholder="gedeelte van naam"/>
     <button class="buttonlayout" type="submit">Zoek</button>
 </form>
 <div th:if="${searchresults != null}" class="scrolling-table">
         <table align="center">
             <thead>
             <tr>
-                <th>Klant</th>
-                <th>Sessie: dag en starttijd</th>
+                <th>Klant</th><th>Sessie: dag en starttijd</th>
             </tr>
             </thead>
             <tbody>
