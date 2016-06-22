@@ -56,7 +56,8 @@ public class IndexController {
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/";
+        SecurityContextHolder.clearContext();
+        return "redirect:/?logout";
     }
 
     @RequestMapping("/unauthorized")
