@@ -29,7 +29,7 @@ public class ListScheduledSessionsController {
 
     // date formats for parsing and presenting
     private static DateFormat parseDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    private static DateFormat presentDateFormat = new SimpleDateFormat("dd MMMM yyyy");
+    private static DateFormat presentDateFormat = new SimpleDateFormat("EEEE dd MMMM yyyy");
 
     //generate a list of sessions for the date picked by a user (Trainer)
     // interface HttpServletRequest's method getRemoteUser returns the username as a String

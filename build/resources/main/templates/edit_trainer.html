@@ -16,10 +16,11 @@
 
 <button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
-<p class="textcenter">Kies 'Nieuwe trainer' of zoek naar bestaande trainers</p>
+<p class="textcenter" style="font-weight: bold">Trainer aanmaken of wijzigen: </p>
+<p class="textcenter">Kies 'Nieuwe trainer' of zoek bestaande trainer (op voor- of achternaam)</p>
 <form class="formlayout" th:action="@{/results}" method="get">
     <button class="buttonlayout" type="button" onclick="location.href='/newtrainer'">Nieuwe Trainer</button><br/><br/>
-    <input type="search" name="trainerSearch" id="trainerSearchId"/>
+    <input type="search" name="trainerSearch" id="trainerSearchId" placeholder="gedeelte van naam"/>
     <button class="buttonlayout" type="submit">Zoek</button>
 </form>
 <div class="scrolling-table">

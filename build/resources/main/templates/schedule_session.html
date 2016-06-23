@@ -20,6 +20,9 @@
     <input type="hidden" id="customer" name="customer"  th:field="${sportSession.customer}"/>
     <label>Klant: </label>
     <label class="customername" style="display: inline-block;" th:text="${sportSession.customer}"> klant </label>
+    <br/>
+    <label>Telefoon: </label>
+    <label class="phone" style="display: inline-block;" th:text="${phone}"> telefoon </label>
     <br/><br/>
     <label> datum en tijd: </label>
     <input type="date" placeholder="datum" required="" id="date" name="date" th:value="${date}"/>

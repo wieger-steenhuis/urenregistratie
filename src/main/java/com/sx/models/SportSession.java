@@ -17,9 +17,10 @@ public class SportSession {
 
     private boolean approved;
 
-    // Date and Time formats to print SportSessions in toString() method
+    // Date and Time formats to print SportSessions in toString() method and getStartTime()
     private static DateFormat sdf = new SimpleDateFormat("EEEE dd MMMM yyyy 'om' HH:mm 'uur'");
     private static DateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy 'om' HH:mm 'uur'");
+    private static DateFormat startTimeFormat = new SimpleDateFormat("HH:mm 'uur'");
 
     @DateWithTime
     private Date timeApproved;
@@ -90,6 +91,15 @@ public class SportSession {
 
     public void setSubscription(Subscription subscription) {
         this.subscription = subscription;
+    }
+
+    public String getStartTime() {
+        Date time=this.getDateTime();
+        if (time != null){
+            return startTimeFormat.format(time);
+        }
+        else
+            return "Nog niet ingepland";
     }
 
     @Override

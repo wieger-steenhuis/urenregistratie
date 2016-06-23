@@ -17,7 +17,8 @@
 
 <button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
-<p class="textcenter">Inplannen of wijzigen sessies: <br> </br>Zoek op voor- of achternaam klant</p>
+<p class="textcenter" style="font-weight: bold">Inplannen of wijzigen sessies:</p>
+<p class="textcenter">Zoek op voor- of achternaam klant</p>
 <form class="formlayout" th:action="@{/sesresults}" method="get">
     <input type="search" name="customerSessionSearch" id="customerSessionSearchId" placeholder="gedeelte van naam"/>
     <button class="buttonlayout" type="submit">Zoek</button>
@@ -26,7 +27,7 @@
         <table align="center">
             <thead>
             <tr>
-                <th>Klant</th><th>Sessie: dag en starttijd</th>
+                <th>Klant - Sessie: dag en starttijd</th>
             </tr>
             </thead>
             <tbody>

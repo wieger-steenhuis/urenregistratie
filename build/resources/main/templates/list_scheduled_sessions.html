@@ -17,23 +17,29 @@
 
 <button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
+<p class="textcenter" style="font-weight: bold">Goedkeuren van sessies: </p>
 <div class="textcenter">
     <p>Klik <span><a th:href="@{/todayssessions}">hier</a></span> voor de sessies van vandaag</p>
     <p>of kies hieronder een andere datum:</p>
     <form th:action="@{/somotherdaysession}" method="post">
-        <input type="date" name="date" id="date" required="required"/>
+        <input type="date" name="date" id="date" required="required" title="Selecteer datum of vul in: dd-mm-jjjj"/>
         <button type="submit" class="buttonlayout">verder</button>
     </form>
 </div>
 <p th:if="${sportSessions!=null}" class="textcenter">Sessies van <span th:text="${thisdate}">datum</span></p>
-<div class="scrolling-table">
+<div th:if="${sportSessions!=null}" class="scrolling-table">
     <table align="center">
+        <thead>
+        <tr>
+            <th> Starttijd - Klant - Trainer</th>
+        </tr>
+        </thead>
         <tbody>
         <tr th:each="item : ${sportSessions}">
             <td>
                 <form th:action="@{/approvesession}" th:object="${sportSession}" method="post">
-                    <input style="text-align:left; width:600px;" type="submit" class="clickable_row"
-                           th:value="${item}"/>
+                    <input style="text-align:left; width: 520px" type="submit" class="clickable_row"
+                           th:value="${item.getStartTime()} + ' - ' + ${item.getCustomer()} + ' - ' + ${item.getTrainer()}"/>
                     <input type="hidden" name="sportSession" th:value="${item.id}"/>
                 </form>
             </td>

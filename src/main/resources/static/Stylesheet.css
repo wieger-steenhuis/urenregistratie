@@ -96,6 +96,8 @@ label{
 .scrolling-table th {
     color: #9200bf;
     border-bottom: 1px solid #9456b5;
+    text-align: left;
+    padding: 2px 5px;
 }
 
 .scrolling-table tr td {

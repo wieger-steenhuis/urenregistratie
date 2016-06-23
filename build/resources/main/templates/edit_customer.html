@@ -16,10 +16,11 @@
 
 <button onclick="window.location.href='/loginTo'" class="buttonlayout">Hoofdmenu</button>
 
-<p class="textcenter">Kies 'Nieuwe klant' of zoek naar bestaande klanten</p>
+<p class="textcenter" style="font-weight: bold">Klant aanmaken of wijzigen: </p>
+<p class="textcenter">Kies 'Nieuwe klant' of zoek bestaande klant (op voor- of achternaam)</p>
 <form class="formlayout" th:action="@{/result}" method="get">
     <button class="buttonlayout" type="button" onclick="location.href='/newcustomer'">Nieuwe Klant</button><br/><br/>
-    <input type="search" name="customerSearch" id="customerSearchId"/>
+    <input type="search" name="customerSearch" id="customerSearchId" placeholder="gedeelte van naam"/>
     <button class="buttonlayout" type="submit">Zoek</button>
 </form>
 <div th:if="${searchresults != null}" class="scrolling-table">
