@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Mrtn on 27-5-2016.
@@ -24,11 +25,15 @@ public class ScheduleSessionController {
         @Autowired
         private SessionService sessionService;
 
+        private SimpleDateFormat sdtf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
         //when a sportSession is found and clicked from previous template search_session this sportSession is inserted in the form
         @RequestMapping(value="schedulesession", method= RequestMethod.POST)
         public String scheduleSession(SportSession sportSession, Model model) {
             model.addAttribute("sportSession", sportSession);
             model.addAttribute("phone", sportSession.getCustomer().getPhoneNr());
+            // needed to check Session date >= Subscription start date
+//            model.addAttribute("subscriptionStartDate", sportSession.getSubscription().getStartDate());
             //separate date and time in 2 String objects and add to the Model:
             if (sportSession.getDateTime() != null) {
                 model.addAttribute("date", new SimpleDateFormat("yyyy-MM-dd").format(sportSession.getDateTime()));
@@ -40,8 +45,20 @@ public class ScheduleSessionController {
         //save button persists sportSession Entity in the database using sportsession method and redirects to login (trainer_home)
         @RequestMapping("/savesession")
         public String save(SportSession sportSession, @RequestParam ("date") String date, @RequestParam("time") String time){
+            String subcriptionDate = sportSession.getSubscription().getStartDate();
             try {
-                sportSession.setDateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(date+" "+time));
+                // Check of session date niet vóór start abonnement ligt
+                Date subsDate = sdtf.parse(subcriptionDate+" 00:00");
+                Date checkSessDate = sdtf.parse(date+" 00:01");
+                Date sessDate = sdtf.parse(date+" "+time);
+                if(subsDate.before(checkSessDate)){
+                    sportSession.setDateTime(sessDate);
+                }
+                else {
+//                    System.out.println("return to schedule session page");
+//                    TODO: foutboodschap teruggeven en de al ingevulde tijd laten staan
+                    return "/schedule_session";
+                }
             } catch (ParseException e) {
                 e.printStackTrace();
             }

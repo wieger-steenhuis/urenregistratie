@@ -18,14 +18,23 @@
     <input type="hidden" id="subscription" name="subscription"  th:field="${sportSession.subscription}"/>
     <input type="hidden" id="trainer" name="trainer"  th:field="${sportSession.trainer}"/>
     <input type="hidden" id="customer" name="customer"  th:field="${sportSession.customer}"/>
+    <!-- Werkt niet!
+    <div th:if="${param.fout}" class="textcenter" style="color:red; font-weight: bold">
+    Datum mag pas vanaf startdatum abonnement worden gekozen
+    </div>
+    -->
     <label>Klant: </label>
     <label class="customername" style="display: inline-block;" th:text="${sportSession.customer}"> klant </label>
     <br/>
     <label>Telefoon: </label>
-    <label class="phone" style="display: inline-block;" th:text="${phone}"> telefoon </label>
+    <label class="phone" style="display: inline-block;" th:text="${sportSession.customer.getPhoneNr()}"> telefoon </label>
+    <br/>
+    <label>Abonnement: </label>
+    <label class="customername" style="display: inline-block;" th:text="${sportSession.subscription}"> datum </label>
     <br/><br/>
     <label> datum en tijd: </label>
-    <input type="date" placeholder="datum" required="" id="date" name="date" th:value="${date}"/>
+    <input type="date" placeholder="datum" required="" id="date" name="date" th:value="${date}"
+           title="datum vanaf startdatum abonnement"/>
     <input type="text" pattern="(([01]?[0-9])|(2[0-3])):((00)|(15)|(30)|(45))" title="tijd als uu:mm, hele kwartieren"
            placeholder="starttijd, heel kwartier" required="" id="time" name="time" th:value="${time}"/>
 
