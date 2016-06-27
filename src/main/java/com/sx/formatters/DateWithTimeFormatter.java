@@ -34,7 +34,7 @@ public class DateWithTimeFormatter implements Formatter <Date> {
         if (source == null || source.isEmpty()){
             return null;
         }
-        System.out.println("PARSING STRING WITH TIME -->"+source);
+//        System.out.println("PARSING STRING WITH TIME -->"+source);
         return new SimpleDateFormat("yyyy-MM-dd HH:mm", locale).parse(source);
     }
 
@@ -44,7 +44,7 @@ public class DateWithTimeFormatter implements Formatter <Date> {
             return null;
         }
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        System.out.println("Formatting from Java.util.Date WITH TIME->"+source);
+//        System.out.println("Formatting from Java.util.Date WITH TIME->"+source);
         return dateFormatter.format(source);
     }
 }
