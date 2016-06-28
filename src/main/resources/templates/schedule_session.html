@@ -30,8 +30,11 @@
     <label class="phone" style="display: inline-block;" th:text="${sportSession.customer.getPhoneNr()}"> telefoon </label>
     <br/>
     <label>Abonnement: </label>
-    <label class="customername" style="display: inline-block;" th:text="${sportSession.subscription}"> datum </label>
+    <label class="customername" style="display: inline-block;" th:text="${sportSession.subscription}"> datum, trainer </label>
     <br/><br/>
+    <div class="textcenter" th:if="${!succeeded}" style="font-weight: bold">
+        De sessie mag niet vóór de ingangsdatum van het abonnement worden gepland!
+    </div>
     <label> datum en tijd: </label>
     <input type="date" placeholder="datum" required="" id="date" name="date" th:value="${date}"
            title="datum vanaf startdatum abonnement"/>
