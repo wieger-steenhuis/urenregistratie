@@ -25,6 +25,9 @@ public class SubscriptionService {
         return this.subscriptionRepository.findByCustomer(customer);
     }
 
+    // TODO: Add query for Subscriptions for a Customer, in which still not-approved Sessions exist.
+    // To be used for planning Sessions and for updating Customers
+
     public Subscription save(Subscription subscription) {
         //whenever a new subscription is saved initSessions creates session objects (depending on subscrType)
         if (subscription.getId() == 0) {

@@ -22,6 +22,11 @@ public class SessionService {
     @Autowired
     private CustomerService customerService;
 
+    // SubscriptionService needed to distinguish sessions from each subscription that matches the search
+    // criteria: Trainer and Customer
+    @Autowired
+    private SubscriptionService subscriptionService;
+
     public SportSession save(SportSession sportSession){
         return this.sessionRepository.save(sportSession);
     }
@@ -40,6 +45,9 @@ public class SessionService {
     public List<SportSession> findSessionsToSchedule(Trainer trainer, String search) {
         List<SportSession> sportSessionList = new ArrayList<>();
         for (Customer customer : customerService.searchNames(search, search)) {
+            // TODO: first find Subscriptions that match the Trainer and Customer, next search sessions belonging to each Subscription
+            // TODO: The next 2 queries must be rewritten to search for matching Subscription instead (update Interface as well!)
+            // TODO: For not planned sessions within a Subscription the total must be presented as well
             sportSessionList.addAll(this.sessionRepository.findFirstByApprovedNotAndDateTimeNullAndTrainerAndCustomer(true, trainer, customer));
             sportSessionList.addAll(this.sessionRepository.findByApprovedNotAndDateTimeNotNullAndTrainerAndCustomerOrderByDateTime(true, trainer, customer));
         }
