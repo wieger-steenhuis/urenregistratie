@@ -1,6 +1,7 @@
 package com.sx.controllers;
 
 import com.sx.models.SportSession;
+import com.sx.models.Subscription;
 import com.sx.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,11 +32,12 @@ public class ScheduleSessionController {
         @RequestMapping(value="schedulesession", method= RequestMethod.POST)
         public String scheduleSession(SportSession sportSession, Model model) {
             boolean success = true;
+            Subscription subs = sportSession.getSubscription();
             model.addAttribute("succeeded", success);
             model.addAttribute("sportSession", sportSession);
             model.addAttribute("phone", sportSession.getCustomer().getPhoneNr());
-            // needed to check Session date >= Subscription start date
-//            model.addAttribute("subscriptionStartDate", sportSession.getSubscription().getStartDate());
+            model.addAttribute("plannedSessions", sessionService.findPendingSessionsOfSubscription(subs).size());
+            model.addAttribute("openSessions", sessionService.findOpenSessionsOfSubscription(subs).size());
             //separate date and time in 2 String objects and add to the Model:
             if (sportSession.getDateTime() != null) {
                 model.addAttribute("date", new SimpleDateFormat("yyyy-MM-dd").format(sportSession.getDateTime()));
@@ -47,7 +49,8 @@ public class ScheduleSessionController {
         //save button persists sportSession Entity in the database using sportsession method and redirects to login (trainer_home)
         @RequestMapping("/savesession")
         public String save(SportSession sportSession, @RequestParam ("date") String date, @RequestParam("time") String time, Model model){
-            String subcriptionDate = sportSession.getSubscription().getStartDate();
+            Subscription subs = sportSession.getSubscription();
+            String subcriptionDate = subs.getStartDate();
             boolean success = false;
             try {
                 // Check of session date niet vóór start abonnement ligt
@@ -64,6 +67,8 @@ public class ScheduleSessionController {
                     model.addAttribute("succeeded", success);
                     model.addAttribute("date", date);
                     model.addAttribute("time", time);
+                    model.addAttribute("plannedSessions", sessionService.findPendingSessionsOfSubscription(subs).size());
+                    model.addAttribute("openSessions", sessionService.findOpenSessionsOfSubscription(subs).size());
                     return "/schedule_session";
                 }
             } catch (ParseException e) {

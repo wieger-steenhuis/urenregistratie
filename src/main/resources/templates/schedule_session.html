@@ -18,11 +18,6 @@
     <input type="hidden" id="subscription" name="subscription"  th:field="${sportSession.subscription}"/>
     <input type="hidden" id="trainer" name="trainer"  th:field="${sportSession.trainer}"/>
     <input type="hidden" id="customer" name="customer"  th:field="${sportSession.customer}"/>
-    <!-- Werkt niet!
-    <div th:if="${param.fout}" class="textcenter" style="color:red; font-weight: bold">
-    Datum mag pas vanaf startdatum abonnement worden gekozen
-    </div>
-    -->
     <label>Klant: </label>
     <label class="customername" style="display: inline-block;" th:text="${sportSession.customer}"> klant </label>
     <br/>
@@ -31,6 +26,12 @@
     <br/>
     <label>Abonnement: </label>
     <label class="customername" style="display: inline-block;" th:text="${sportSession.subscription}"> datum, trainer </label>
+    <br/>
+    <label>Ingepland: </label>
+    <label class="customername" style="display: inline-block;" th:text="${plannedSessions} + ' sessies'"> aantal </label>
+    <br/>
+    <label>Niet ingepland: </label>
+    <label class="customername" style="display: inline-block;" th:text="${openSessions} + ' sessies'"> aantal </label>
     <br/><br/>
     <div class="textcenter" th:if="${!succeeded}" style="font-weight: bold">
         De sessie mag niet vóór de ingangsdatum van het abonnement worden gepland!
