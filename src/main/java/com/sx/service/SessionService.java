@@ -50,7 +50,7 @@ public class SessionService {
 
     public List<SportSession> findPendingSessionsOfSubscription(Subscription subscription) {
         List<SportSession> sportSessionList = new ArrayList<>();
-        sportSessionList.addAll(sessionRepository.findBySubscriptionAndDateTimeNotNullAndApprovedNot(subscription, true));
+        sportSessionList.addAll(sessionRepository.findBySubscriptionAndDateTimeNotNullAndApprovedNotOrderByDateTime(subscription, true));
         return sportSessionList;
     }
 
@@ -62,7 +62,7 @@ public class SessionService {
             // DONE: The next 2 queries must be rewritten to search for matching Subscription instead (update Interface as well!)
             // TODO: For not planned sessions within a Subscription the total must be presented as well
                 sportSessionList.addAll(this.sessionRepository.findFirstBySubscriptionAndDateTimeNullAndApprovedNot(subscription, true));
-                sportSessionList.addAll(this.sessionRepository.findBySubscriptionAndDateTimeNotNullAndApprovedNot(subscription, true));
+                sportSessionList.addAll(this.sessionRepository.findBySubscriptionAndDateTimeNotNullAndApprovedNotOrderByDateTime(subscription, true));
             }
         }
         return sportSessionList;

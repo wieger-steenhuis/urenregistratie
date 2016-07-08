@@ -102,6 +102,19 @@ public class SportSession {
             return "Nog niet ingepland";
     }
 
+    public String getSchedulePrint() {
+        Date time=this.getDateTime();
+        if (time == null) {
+            return customer.toString() + " - 1 of meer niet ingeplande sessies";
+        }
+        else if (this.isApproved()) {
+            return customer.toString() + " - Goedgekeurd op: " + sdf2.format( this.getTimeApproved());
+        }
+        else {
+            return customer.toString() + " - " + sdf.format(time);
+        }
+    }
+
     @Override
     public String toString() {
         Date time=this.getDateTime();

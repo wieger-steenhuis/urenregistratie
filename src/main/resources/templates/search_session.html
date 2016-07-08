@@ -27,7 +27,7 @@
         <table align="center">
             <thead>
             <tr>
-                <th>Klant - Sessie: dag en starttijd</th>
+                <th>Klant - Sessie: dag en starttijd (per abonnement)</th>
             </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                 <td>
                     <form th:action="@{/schedulesession}" th:object="${sportSession}" method="post">
                         <input style="text-align:left; width: 600px;" type="submit" class="clickable_row"
-                               th:value="${item}"/>
+                               th:value="${item.getSchedulePrint()}"/>
                         <input type="hidden" name="sportSession" th:value="${item.id}"/>
                     </form>
                 </td>
