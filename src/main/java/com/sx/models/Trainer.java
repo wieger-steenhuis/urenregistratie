@@ -12,10 +12,21 @@ public class Trainer {
     private int id;
     private String firstName;
     private String lastName;
+    @Column (unique = true)
     private String username;
     private String phoneNr;
     private String eMail;
     private String password;
+    @Transient
+    private String confirmPassword;
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     public int getId() {
         return id;

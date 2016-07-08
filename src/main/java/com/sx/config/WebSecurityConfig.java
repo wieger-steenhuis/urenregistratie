@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/index","/Stylesheet.css","/images/**","/loginTo").permitAll()
+                .antMatchers("/","/index","/Stylesheet.css","/images/**","/loginTo","/register","/register/save").permitAll()
                 .antMatchers("/login2","/trainer_home").hasAuthority("TRAINER") // login2 page only for TRAINER
                 .antMatchers("/login","/admin_home").hasAuthority("ADMIN") // login page only for ADMIN
                 .anyRequest().authenticated()

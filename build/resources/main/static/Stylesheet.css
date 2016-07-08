@@ -101,6 +101,11 @@ label{
     padding: 2px 5px;
 }
 
+
+#registertable{
+    width: 60%;
+}
+
 .scrolling-table tr td {
     width: 50%;
     padding: 2px 5px;

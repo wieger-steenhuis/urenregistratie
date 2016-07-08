@@ -1,0 +1,53 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>PP urenregistratie(web 1.0)</title>
+    <link href="../static/Stylesheet.css" th:href="@{Stylesheet.css}" rel="stylesheet" media="screen" /> <!--DOES NOT WORK WITH SPRING...STORE STYLESHEET IN DEFFERENT FOLDER???-->
+    <meta charset="UTF-8" />
+</head>
+<body>
+<article id="loginText">
+    <p>
+    <h3>Welcome, sign up to get access</h3>
+    <br/> If you are already a subscribed user, follow the link to the:
+    <a th:href="@{/login}"> login page.</a>
+    </p>
+</article>
+
+
+<form  th:object="${trainer}"  th:action="@{/register/save}" action="#" method="post">
+    <table id="registertable">
+        <thead>
+        <th>Please, fill out the form</th>
+        <th></th>
+        </thead>
+        <tbody>
+        <td>
+            <label> First Name : <input type="text" th:field="*{firstName}"/> </label><br/>
+            <label> Last Name : <input type="text" th:field="*{lastName}"/> </label><br/>
+            <p class="errormessage" th:if="${registerError}">username is already in use! Pick an other </p>
+            <label> User Name : <input type="text" th:field="${trainer.username}" /> </label><br/>
+            <p class="errormessage" th:if="${passwordError}">passwords don't match! </p>
+            <label> Password: <input type="password" th:field="*{password}" name="password"/> </label><br/>
+            <label> re-enter Password: <input type="password" th:field="*{confirmPassword}"/> </label><br/>
+            <select type="text" th:value="${user_roles.role}" th:field="${user_roles.role}" >
+                <option name="select" value="TRAINER">TRAINER</option>
+                <option name="select" value="ADMIN">ADMIN</option>
+                </select>
+        </td>
+        <td>
+            <!--<label> Street : <input type="text" th:field="*{street}"/> </label>-->
+            <!--<label> Number : <input type="text" th:field="*{houseNumber}"/> </label><br/>-->
+            <!--<label> City : <input type="text" th:field="*{city}"/> </label><br/>-->
+            <label> Email address : <input type="email" th:field="*{eMail}" name="email"/> </label><br/>
+            <label> Phone Number : <input type="number" th:field="*{phoneNr}"/> </label><br/>
+            <input class="button" type="submit" value="Submit"/>
+            <br/>
+        </td>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

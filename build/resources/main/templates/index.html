@@ -22,9 +22,13 @@
         <input type="password" style="text-align: center" id="psw" placeholder="Wachtwoord" name="password"/><!--th:field="${gizmo.field2}"--><br/><br/>
         <button class="buttonlayout" type="submit">Inloggen</button>
     </form>
+
+    <div class="errormessage" th:if="${registered}">You can login using your new account</div>
     <div th:if="${param.error}" class="textcenter" style="color:red; font-weight: bold">
         Ongeldige gebruikersnaam of wachtwoord, probeer opnieuw
     </div>
+    If you didn't sign up already, follow the link to the:
+    <a th:href="@{/register}"> registration page.</a>
     <div style="align-items:baseline">
         <p class="textcenter" style="background-color: white">powered by:<br/>
             <a href="http://www.programit.nl" target="_blank">
